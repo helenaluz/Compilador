@@ -17,11 +17,12 @@ public class EditActionHandler {
 
     public void equipe() {
         /*
-        message: Helena Luz, Luana Nitsche, Maria Eduarda Nascimento
+        return "Helena Luz, Luana Nitsche, Maria Eduarda Nascimento";
          */
     }
 
     /*
     Talvez criar uma funcao para os atalhos que chamarao as funcoes de cada botao (nao sei como funciona essa parte)
+    att: vi algo sobre KeyBind;
      */
 }

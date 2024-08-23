@@ -5,10 +5,6 @@ import javax.swing.*;
 public class CompileActionHandler {
     //TODO: compilar
     public String compilar() {
-        /*
-        message: compilação de programas ainda não foi implementada
-         */
-
-        return "a";
+        return "compilação de programas ainda não foi implementada";
     }
 }

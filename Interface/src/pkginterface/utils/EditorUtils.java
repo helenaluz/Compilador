@@ -1,7 +1,5 @@
 package pkginterface.utils;
 
-import javax.swing.*;
-
 public class EditorUtils {
 
     public static void limpaEditor() {
@@ -16,7 +14,7 @@ public class EditorUtils {
         //clear all
     }
 
-    public static void atualizaStatus() {
+    public static void atualizaStatus(String filePath) {
         //recebe caminho do arquivo atual
     }
 }

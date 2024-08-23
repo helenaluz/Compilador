@@ -1,18 +1,31 @@
 package pkginterface.actions;
 
+import pkginterface.utils.EditorUtils;
+
 import javax.swing.*;
-import java.io.File;
+import java.io.*;
 
 
 public class FileActionHandler {
     //TODO: novo arquivo, abrir arquivo, salvar arquivo
 
-    public void openFile(JFrame parent) {
+    public void openFile(JFrame parent, JTextArea editor) {
         JFileChooser fileChooser = new JFileChooser();
         int result = fileChooser.showOpenDialog(parent);
+
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
-            //TODO: logica para abrir o arquivo
+
+            try {
+
+                BufferedReader reader = new BufferedReader(new FileReader(selectedFile));
+                editor.read(reader, null);
+                EditorUtils.limpaAreaMsg();
+                EditorUtils.atualizaStatus(selectedFile.getPath());
+
+            } catch (IOException e) {
+                // Tratar exceções
+            }
             /*
             precisa ter:
              - o conteudo do arquivo no editor
@@ -21,6 +34,9 @@ public class FileActionHandler {
              */
         }
     }
+
+
+
 
     public void saveFile(JFrame parent) {
         //TODO: logica para salvar o arquivo
