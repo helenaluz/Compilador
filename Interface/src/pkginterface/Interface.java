@@ -14,6 +14,7 @@ public class Interface {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        String kmsk = "";
         // TODO code application logic here
     }
     
