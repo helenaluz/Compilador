@@ -7,8 +7,7 @@ import java.io.*;
 
 
 public class FileActionHandler {
-    //TODO: novo arquivo, abrir arquivo, salvar arquivo
-
+    
     public void openFile(JFrame parent, JTextArea editor) {
         JFileChooser fileChooser = new JFileChooser();
         int result = fileChooser.showOpenDialog(parent);

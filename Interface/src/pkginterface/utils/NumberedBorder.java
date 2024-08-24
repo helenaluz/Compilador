@@ -1,4 +1,4 @@
-package compilador;
+package pkginterface.utils;
 
 import java.awt.Color;
 import java.awt.Component;
