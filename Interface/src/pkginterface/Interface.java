@@ -20,6 +20,7 @@ public class Interface {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        String oi = "";
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
         public void run() {
                 createAndShowGUI();
