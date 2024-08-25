@@ -1,7 +1,6 @@
 package pkginterface.actions;
 
 import java.awt.Component;
-import pkginterface.utils.EditorUtils;
 
 import javax.swing.*;
 import java.io.*;
@@ -30,10 +29,10 @@ public class FileActionHandler {
                 editor.read(reader, null);
 
                 // Limpa a área de mensagens
-                EditorUtils.limpaAreaMsg();
+                //EditorUtils.limpaAreas();
 
                 // Atualiza a barra de status com o nome do arquivo
-                EditorUtils.atualizaStatus(selectedFile.getPath());
+                //EditorUtils.atualizaStatus(selectedFile.getPath());
 
             } catch (IOException e) {
                 // Tratar possíveis exceções de leitura de arquivo

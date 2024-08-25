@@ -5,6 +5,7 @@
 package pkginterface;
 
 import pkginterface.actions.FileActionHandler;
+import pkginterface.utils.EditorUtils;
 
 /**
  *
@@ -198,12 +199,15 @@ public class InterfaceMain extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        EditorUtils.limpaAreas(EditorTxt);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         FileActionHandler fah = new FileActionHandler();
+        //TODO: linkar elementos que serao 'limpos' ao abrir um arquivo
         fah.openFile(this, EditorTxt);
+        //EditorUtils.limpaAreas();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
