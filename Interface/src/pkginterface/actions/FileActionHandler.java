@@ -44,11 +44,65 @@ public class FileActionHandler {
         }
     }
 
+  
+      private static boolean atualizaArquivo(File arquivo, JTextArea conteudo) {
+        try (FileWriter escrever = new FileWriter(arquivo)) {
+            escrever.write(conteudo.getText()); 
+            return true;
+        } catch (IOException e) {
+            System.out.println("Não foi possível atualizar o conteúdo do arquivo.");
+            e.printStackTrace();
+            return false; 
+        }
+    }
 
 
 
+    public static String  salvaArquivo(JTextArea conteudo) {     
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Escolha o local e o nome do arquivo");
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 
-    public void saveFile(JFrame parent) {
+        int selecaoUsuario = fileChooser.showSaveDialog(null);
+
+        if (selecaoUsuario == JFileChooser.APPROVE_OPTION) {
+            fileChooser.setDialogTitle("Escolha o local e o nome do arquivo");
+            File arquivo = fileChooser.getSelectedFile();
+            
+            if (!arquivo.getName().endsWith(".txt")) {
+                arquivo = new File(arquivo.getAbsolutePath() + ".txt");
+            }
+                        
+            try {
+                if (arquivo.createNewFile() || arquivo.exists()) {
+                    if (atualizaArquivo(arquivo, conteudo)) {
+                        return arquivo.getAbsolutePath();
+                    } else {
+                        return null; 
+                    }
+                } else {
+                    System.out.println("Não foi possível criar o arquivo.");
+                    return null; 
+                }
+            } catch (IOException e) {
+                System.out.println("Falha ao criar o arquivo.");
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return null; 
+    }
+
+
+    public static void botaoSalvar(JTextArea conteudo, File existeArquivo){
+       if(existeArquivo != null || existeArquivo.exists()){
+           atualizaArquivo(existeArquivo, conteudo);
+      }else{
+           salvaArquivo(conteudo);
+      }    
+   
+    }
+        
         //TODO: logica para salvar o arquivo
         /*
         precisa ter:
@@ -62,7 +116,7 @@ public class FileActionHandler {
             - chamar funcao para limpar area de mensagem
             - chamar funcao para atualizar barra de status
          */
-    }
+    
 
     public void newFile(){
         //TODO: logica para novo arquivo
