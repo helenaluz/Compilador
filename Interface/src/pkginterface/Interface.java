@@ -4,6 +4,7 @@
  */
 package pkginterface;
 
+import pkginterface.InterfaceMain;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JFrame;
@@ -19,17 +20,25 @@ public class Interface {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        createAndShowGUI();
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+        public void run() {
+                createAndShowGUI();
+        }
+        });
         // TODO code application logic here
     }
     
     public static void createAndShowGUI() {
         JFrame frame = new JFrame("Interface");
-        JTextArea textArea  = new JTextArea();
-        frame.add(textArea);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800,600);
-        frame.setVisible(true);     
+        frame.setSize(800, 600);
+        
+        // Cria e adiciona o painel da interface
+        InterfaceMain interfaceMain = new InterfaceMain();
+        frame.add(interfaceMain);
+        
+        // Torna o frame visível
+        frame.setVisible(true);    
         
     }
     
