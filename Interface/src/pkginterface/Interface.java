@@ -4,11 +4,8 @@
  */
 package pkginterface;
 
-import pkginterface.InterfaceMain;
-import java.util.HashSet;
-import java.util.Set;
-import javax.swing.JFrame;
-import javax.swing.JTextArea;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  *
@@ -20,7 +17,6 @@ public class Interface {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String oi = "";
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
         public void run() {
                 createAndShowGUI();
@@ -32,7 +28,13 @@ public class Interface {
     public static void createAndShowGUI() {
         JFrame frame = new JFrame("Interface");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
+        frame.setMinimumSize(new java.awt.Dimension(900, 250));
+        
+        ImageIcon icon = new ImageIcon(Interface.class.getResource("catIcon.png"));
+        Image image = icon.getImage();
+        frame.setIconImage(image);
+        
+        frame.setTitle("Compiladores -  Duda, Helena e Luana");
         
         // Cria e adiciona o painel da interface
         InterfaceMain interfaceMain = new InterfaceMain();
@@ -44,3 +46,4 @@ public class Interface {
     }
     
 }
+

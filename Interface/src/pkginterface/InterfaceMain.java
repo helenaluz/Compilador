@@ -12,6 +12,7 @@ import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 import pkginterface.actions.FileActionHandler;
 import pkginterface.utils.EditorUtils;
+import pkginterface.NumberedBorder;  
 
 /**
  *
@@ -23,8 +24,11 @@ public class InterfaceMain extends javax.swing.JPanel {
      * Creates new form InterfaceMain
      */
     public InterfaceMain() {
+        
         initComponents();
         configureShortcuts();
+        jTextArea4.setBorder(new NumberedBorder());
+// Def
     }
     
     private void configureShortcuts() {
@@ -46,7 +50,13 @@ public class InterfaceMain extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
+        jSplitPane2 = new javax.swing.JSplitPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         btnNewFile = new javax.swing.JButton();
         btnOpenFile = new javax.swing.JButton();
         btnSaveFile = new javax.swing.JButton();
@@ -55,147 +65,136 @@ public class InterfaceMain extends javax.swing.JPanel {
         btnCut = new javax.swing.JButton();
         btnCompile = new javax.swing.JButton();
         btnTeam = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        EditorTxt = new javax.swing.JTextArea();
 
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(900, 250));
+        setName("PainelPrimcipal"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(900, 250));
+        setLayout(new java.awt.BorderLayout(10, 0));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 52, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
-        );
+        jSplitPane2.setDividerLocation(-3);
+        jSplitPane2.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        jTextArea4.setColumns(20);
+        jTextArea4.setRows(5);
+        jScrollPane1.setViewportView(jTextArea4);
+
+        jSplitPane2.setTopComponent(jScrollPane1);
+
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        jTextArea3.setEditable(false);
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jScrollPane2.setViewportView(jTextArea3);
+
+        jSplitPane2.setRightComponent(jScrollPane2);
+
+        add(jSplitPane2, java.awt.BorderLayout.CENTER);
+
+        jLabel1.setText("Status");
+        add(jLabel1, java.awt.BorderLayout.PAGE_END);
+
+        jPanel1.setMinimumSize(new java.awt.Dimension(900, 25));
+        jPanel1.setPreferredSize(new java.awt.Dimension(900, 80));
 
         btnNewFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/newfile.png"))); // NOI18N
         btnNewFile.setText("<html>Salvar<br>arquivo<br>[Ctrl+S]</html>");
+        btnNewFile.setMinimumSize(new java.awt.Dimension(90, 25));
+        btnNewFile.setPreferredSize(new java.awt.Dimension(90, 70));
         btnNewFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNewFileActionPerformed(evt);
             }
         });
+        jPanel1.add(btnNewFile);
 
         btnOpenFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/openfile.png"))); // NOI18N
         btnOpenFile.setText("<html>Abrir <br> arquivo<br>[Ctrl+N]</html>");
+        btnOpenFile.setMinimumSize(new java.awt.Dimension(90, 25));
+        btnOpenFile.setPreferredSize(new java.awt.Dimension(90, 70));
         btnOpenFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOpenFileActionPerformed(evt);
             }
         });
+        jPanel1.add(btnOpenFile);
 
         btnSaveFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/savefile.png"))); // NOI18N
         btnSaveFile.setText("<html>Salvar<br>arquivo<br> [Ctrl+S]</html>");
+        btnSaveFile.setMinimumSize(new java.awt.Dimension(90, 25));
+        btnSaveFile.setPreferredSize(new java.awt.Dimension(90, 70));
         btnSaveFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveFileActionPerformed(evt);
             }
         });
+        jPanel1.add(btnSaveFile);
 
         btnCopy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/copy.png"))); // NOI18N
         btnCopy.setText("<html>Copiar<br> [Ctrl+C]</html>");
+        btnCopy.setMinimumSize(new java.awt.Dimension(90, 25));
+        btnCopy.setPreferredSize(new java.awt.Dimension(90, 70));
         btnCopy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCopyActionPerformed(evt);
             }
         });
+        jPanel1.add(btnCopy);
 
         btnPaste.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/paste.png"))); // NOI18N
         btnPaste.setText("<html>Colar<br> [Ctrl+V]</html>");
+        btnPaste.setMinimumSize(new java.awt.Dimension(90, 25));
+        btnPaste.setPreferredSize(new java.awt.Dimension(90, 70));
         btnPaste.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPasteActionPerformed(evt);
             }
         });
+        jPanel1.add(btnPaste);
 
         btnCut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/cut.png"))); // NOI18N
         btnCut.setText("<html>Recortar<br> [Ctrl+X]<html>");
+        btnCut.setMinimumSize(new java.awt.Dimension(90, 25));
+        btnCut.setPreferredSize(new java.awt.Dimension(90, 70));
         btnCut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCutActionPerformed(evt);
             }
         });
+        jPanel1.add(btnCut);
 
         btnCompile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/compile.png"))); // NOI18N
         btnCompile.setText("<html>Compilar <br>[F7]</html>");
+        btnCompile.setMinimumSize(new java.awt.Dimension(90, 25));
+        btnCompile.setPreferredSize(new java.awt.Dimension(90, 70));
         btnCompile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompileActionPerformed(evt);
             }
         });
+        jPanel1.add(btnCompile);
 
         btnTeam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/equipe.png"))); // NOI18N
         btnTeam.setText("<html>Equipe <br>[F1]</html>");
         btnTeam.setToolTipText("Aqui você encontrará informações sobre a equipe que realizou esse projeto.");
+        btnTeam.setMinimumSize(new java.awt.Dimension(90, 25));
         btnTeam.setName("Equipe"); // NOI18N
+        btnTeam.setPreferredSize(new java.awt.Dimension(90, 70));
         btnTeam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTeamActionPerformed(evt);
             }
         });
+        jPanel1.add(btnTeam);
 
-        EditorTxt.setColumns(20);
-        EditorTxt.setRows(5);
-        jScrollPane2.setViewportView(EditorTxt);
+        add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnNewFile, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnOpenFile, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSaveFile, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCopy, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPaste, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCut, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCompile, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(106, 106, 106)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnTeam, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 842, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnNewFile, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnOpenFile, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSaveFile, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCopy, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnCut, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnPaste, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnCompile, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnTeam, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
-        );
+        getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNewFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewFileActionPerformed
@@ -213,7 +212,6 @@ public class InterfaceMain extends javax.swing.JPanel {
 
     private void btnSaveFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveFileActionPerformed
         // TODO add your handling code here:
-        FileActionHandler.salvaArquivo(EditorTxt);
     }//GEN-LAST:event_btnSaveFileActionPerformed
 
     private void btnCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCopyActionPerformed
@@ -238,7 +236,6 @@ public class InterfaceMain extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea EditorTxt;
     private javax.swing.JButton btnCompile;
     private javax.swing.JButton btnCopy;
     private javax.swing.JButton btnCut;
@@ -247,7 +244,12 @@ public class InterfaceMain extends javax.swing.JPanel {
     private javax.swing.JButton btnPaste;
     private javax.swing.JButton btnSaveFile;
     private javax.swing.JButton btnTeam;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSplitPane jSplitPane2;
+    private javax.swing.JTextArea jTextArea3;
+    public javax.swing.JTextArea jTextArea4;
     // End of variables declaration//GEN-END:variables
 }
