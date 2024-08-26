@@ -54,7 +54,7 @@ public class InterfaceMain extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        MessageTxt = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnNewFile = new javax.swing.JButton();
@@ -87,10 +87,10 @@ public class InterfaceMain extends javax.swing.JPanel {
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        jTextArea3.setEditable(false);
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane2.setViewportView(jTextArea3);
+        MessageTxt.setEditable(false);
+        MessageTxt.setColumns(20);
+        MessageTxt.setRows(5);
+        jScrollPane2.setViewportView(MessageTxt);
 
         jSplitPane2.setRightComponent(jScrollPane2);
 
@@ -199,19 +199,20 @@ public class InterfaceMain extends javax.swing.JPanel {
 
     private void btnNewFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewFileActionPerformed
         // TODO add your handling code here:
-        EditorUtils.limpaAreas(EditorTxt);
+        EditorUtils.limpaAreas(jTextArea4);
     }//GEN-LAST:event_btnNewFileActionPerformed
 
     private void btnOpenFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenFileActionPerformed
         // TODO add your handling code here:
         FileActionHandler fah = new FileActionHandler();
         //TODO: linkar elementos que serao 'limpos' ao abrir um arquivo
-        fah.openFile(this, EditorTxt);
+        fah.openFile(this, jTextArea4);
         //EditorUtils.limpaAreas();
     }//GEN-LAST:event_btnOpenFileActionPerformed
 
     private void btnSaveFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveFileActionPerformed
         // TODO add your handling code here:
+        FileActionHandler.criarSalvarArquivo(jTextArea4);
     }//GEN-LAST:event_btnSaveFileActionPerformed
 
     private void btnCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCopyActionPerformed
@@ -228,14 +229,17 @@ public class InterfaceMain extends javax.swing.JPanel {
 
     private void btnCompileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompileActionPerformed
         // TODO add your handling code here:
+        MessageTxt.setText("compilação de programas ainda não foi implementada");
     }//GEN-LAST:event_btnCompileActionPerformed
 
     private void btnTeamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTeamActionPerformed
         // TODO add your handling code here:
+        MessageTxt.setText("Helena Luz, Luana Nitsche, Maria Eduarda Nascimento");
     }//GEN-LAST:event_btnTeamActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea MessageTxt;
     private javax.swing.JButton btnCompile;
     private javax.swing.JButton btnCopy;
     private javax.swing.JButton btnCut;
@@ -249,7 +253,6 @@ public class InterfaceMain extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSplitPane jSplitPane2;
-    private javax.swing.JTextArea jTextArea3;
     public javax.swing.JTextArea jTextArea4;
     // End of variables declaration//GEN-END:variables
 }

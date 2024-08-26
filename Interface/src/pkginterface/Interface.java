@@ -29,6 +29,7 @@ public class Interface {
         JFrame frame = new JFrame("Interface");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setMinimumSize(new java.awt.Dimension(900, 250));
+        frame.setSize(800,600);
         
         ImageIcon icon = new ImageIcon(Interface.class.getResource("catIcon.png"));
         Image image = icon.getImage();
