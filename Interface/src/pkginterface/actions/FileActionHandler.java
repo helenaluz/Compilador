@@ -58,7 +58,7 @@ public class FileActionHandler {
 
 
 
-    public static String  criarSalvarArquivo(JTextArea conteudo) {     
+    public static String  salvaArquivo(JTextArea conteudo) {     
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Escolha o local e o nome do arquivo");
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -94,11 +94,11 @@ public class FileActionHandler {
     }
 
 
-    public static void salvar(JTextArea conteudo, File existeArquivo){
+    public static void botaoSalvar(JTextArea conteudo, File existeArquivo){
        if(existeArquivo != null || existeArquivo.exists()){
            atualizaArquivo(existeArquivo, conteudo);
       }else{
-           criarSalvarArquivo(conteudo);
+           salvaArquivo(conteudo);
       }    
    
     }

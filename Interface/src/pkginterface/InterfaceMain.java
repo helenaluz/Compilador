@@ -3,19 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package pkginterface;
+
 import java.awt.event.ActionEvent;
-import javax.swing.ActionMap;
 import javax.swing.AbstractAction;
+import javax.swing.ActionMap;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
-import java.awt.datatransfer.UnsupportedFlavorException;
-import java.awt.event.*;
-import javax.swing.*;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import pkginterface.actions.*;
 import pkginterface.actions.FileActionHandler;
 import pkginterface.utils.EditorUtils;
 
@@ -219,13 +213,8 @@ public class InterfaceMain extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
-     
-    private void configurarAtalhos() {
-    InputMap inputMap = this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
-    ActionMap actionMap = this.getActionMap();
-    
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnNewFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewFileActionPerformed
         // TODO add your handling code here:
         EditorUtils.limpaAreas(EditorTxt);
     }//GEN-LAST:event_btnNewFileActionPerformed
@@ -240,24 +229,16 @@ public class InterfaceMain extends javax.swing.JPanel {
 
     private void btnSaveFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveFileActionPerformed
         // TODO add your handling code here:
-        //FileActionHandler.salvar(EditorTxt, );
-    }//GEN-LAST:event_jButton3ActionPerformed
+        FileActionHandler.salvaArquivo(EditorTxt);
+    }//GEN-LAST:event_btnSaveFileActionPerformed
 
     private void btnCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCopyActionPerformed
         // TODO add your handling code here:
-        EditActionHandler.copiar(EditorTxt);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnCopyActionPerformed
 
     private void btnPasteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasteActionPerformed
-        try {
-            // TODO add your handling code here:
-            EditActionHandler.colar(EditorTxt);
-        } catch (UnsupportedFlavorException ex) {
-            Logger.getLogger(InterfaceMain.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(InterfaceMain.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPasteActionPerformed
 
     private void btnCutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCutActionPerformed
         // TODO add your handling code here:
