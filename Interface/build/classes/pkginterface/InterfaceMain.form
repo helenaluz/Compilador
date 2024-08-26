@@ -2,6 +2,9 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
+    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+      <Color id="Default Cursor"/>
+    </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[900, 250]"/>
     </Property>
@@ -21,10 +24,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnNewFile" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnOpenFile" min="-2" pref="100" max="-2" attributes="0"/>
@@ -38,23 +41,23 @@
                       <Component id="btnCut" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnCompile" min="-2" pref="100" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnTeam" min="-2" pref="100" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                              <Component id="jPanel2" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnTeam" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <Component id="jScrollPane3" min="-2" pref="894" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane2" min="-2" pref="842" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel1" max="32767" attributes="0"/>
-                  <Component id="jPanel2" max="32767" attributes="0"/>
-                  <Component id="jScrollPane1" alignment="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane2" min="-2" pref="823" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -63,56 +66,35 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel1" max="32767" attributes="0"/>
                   <Component id="btnNewFile" min="-2" pref="70" max="-2" attributes="0"/>
                   <Component id="btnOpenFile" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                   <Component id="btnSaveFile" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                   <Component id="btnCopy" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="btnPaste" alignment="1" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="btnCut" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="btnTeam" alignment="1" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="btnCompile" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnCut" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                      <Component id="btnPaste" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="btnCompile" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                      <Component id="btnTeam" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="354" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jScrollPane3" min="-2" pref="110" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <Component id="jScrollPane1" min="-2" pref="16" max="-2" attributes="0"/>
+              <EmptySpace pref="112" max="32767" attributes="0"/>
+              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-    </Container>
     <Container class="javax.swing.JPanel" name="jPanel2">
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="52" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -122,29 +104,12 @@
         </DimensionLayout>
       </Layout>
     </Container>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextArea1">
-          <Properties>
-            <Property name="columns" type="int" value="20"/>
-            <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Status"/>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane3">
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-    </Container>
     <Component class="javax.swing.JButton" name="btnNewFile">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Novo [Ctrl+N]"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/pkginterface/resources/newfile.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;Salvar&lt;br&gt;arquivo&lt;br&gt;[Ctrl+S]&lt;/html&gt;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNewFileActionPerformed"/>
@@ -152,7 +117,10 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnOpenFile">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Abrir [Ctrl+O]"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/pkginterface/resources/openfile.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;Abrir &lt;br&gt; arquivo&lt;br&gt;[Ctrl+N]&lt;/html&gt;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOpenFileActionPerformed"/>
@@ -160,7 +128,10 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnSaveFile">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Salvar [Ctrl+S]"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/pkginterface/resources/savefile.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;Salvar&lt;br&gt;arquivo&lt;br&gt; [Ctrl+S]&lt;/html&gt;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveFileActionPerformed"/>
@@ -168,7 +139,10 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnCopy">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Copiar [Ctrl+C]"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/pkginterface/resources/copy.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;Copiar&lt;br&gt; [Ctrl+C]&lt;/html&gt;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCopyActionPerformed"/>
@@ -176,7 +150,10 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnPaste">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Colar [Ctrl+V]"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/pkginterface/resources/paste.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;Colar&lt;br&gt; [Ctrl+V]&lt;/html&gt;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPasteActionPerformed"/>
@@ -184,7 +161,10 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnCut">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Recortar [Ctrl+X]"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/pkginterface/resources/cut.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;Recortar&lt;br&gt; [Ctrl+X]&lt;html&gt;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCutActionPerformed"/>
@@ -192,7 +172,10 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnCompile">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Compilar [F7]"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/pkginterface/resources/compile.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;Compilar &lt;br&gt;[F7]&lt;/html&gt;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCompileActionPerformed"/>
@@ -200,7 +183,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnTeam">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Equipe [F1]"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/pkginterface/resources/equipe.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;Equipe &lt;br&gt;[F1]&lt;/html&gt;"/>
+        <Property name="toolTipText" type="java.lang.String" value="Aqui voc&#xea; encontrar&#xe1; informa&#xe7;&#xf5;es sobre a equipe que realizou esse projeto."/>
+        <Property name="name" type="java.lang.String" value="Equipe" noResource="true"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTeamActionPerformed"/>
