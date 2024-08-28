@@ -77,6 +77,8 @@ public class InterfaceMain extends javax.swing.JPanel {
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(200, 200));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(244, 200));
 
         jTextArea4.setColumns(20);
         jTextArea4.setRows(5);
@@ -104,8 +106,8 @@ public class InterfaceMain extends javax.swing.JPanel {
 
         btnNewFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/newfile.png"))); // NOI18N
         btnNewFile.setText("<html>Salvar<br>arquivo<br>[Ctrl+S]</html>");
-        btnNewFile.setMinimumSize(new java.awt.Dimension(90, 25));
-        btnNewFile.setPreferredSize(new java.awt.Dimension(90, 70));
+        btnNewFile.setMinimumSize(new java.awt.Dimension(100, 25));
+        btnNewFile.setPreferredSize(new java.awt.Dimension(100, 70));
         btnNewFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNewFileActionPerformed(evt);
@@ -115,8 +117,8 @@ public class InterfaceMain extends javax.swing.JPanel {
 
         btnOpenFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/openfile.png"))); // NOI18N
         btnOpenFile.setText("<html>Abrir <br> arquivo<br>[Ctrl+N]</html>");
-        btnOpenFile.setMinimumSize(new java.awt.Dimension(90, 25));
-        btnOpenFile.setPreferredSize(new java.awt.Dimension(90, 70));
+        btnOpenFile.setMinimumSize(new java.awt.Dimension(100, 25));
+        btnOpenFile.setPreferredSize(new java.awt.Dimension(100, 70));
         btnOpenFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOpenFileActionPerformed(evt);
@@ -126,8 +128,8 @@ public class InterfaceMain extends javax.swing.JPanel {
 
         btnSaveFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/savefile.png"))); // NOI18N
         btnSaveFile.setText("<html>Salvar<br>arquivo<br> [Ctrl+S]</html>");
-        btnSaveFile.setMinimumSize(new java.awt.Dimension(90, 25));
-        btnSaveFile.setPreferredSize(new java.awt.Dimension(90, 70));
+        btnSaveFile.setMinimumSize(new java.awt.Dimension(100, 25));
+        btnSaveFile.setPreferredSize(new java.awt.Dimension(100, 70));
         btnSaveFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveFileActionPerformed(evt);
@@ -137,8 +139,8 @@ public class InterfaceMain extends javax.swing.JPanel {
 
         btnCopy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/copy.png"))); // NOI18N
         btnCopy.setText("<html>Copiar<br> [Ctrl+C]</html>");
-        btnCopy.setMinimumSize(new java.awt.Dimension(90, 25));
-        btnCopy.setPreferredSize(new java.awt.Dimension(90, 70));
+        btnCopy.setMinimumSize(new java.awt.Dimension(100, 25));
+        btnCopy.setPreferredSize(new java.awt.Dimension(100, 70));
         btnCopy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCopyActionPerformed(evt);
@@ -148,8 +150,8 @@ public class InterfaceMain extends javax.swing.JPanel {
 
         btnPaste.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/paste.png"))); // NOI18N
         btnPaste.setText("<html>Colar<br> [Ctrl+V]</html>");
-        btnPaste.setMinimumSize(new java.awt.Dimension(90, 25));
-        btnPaste.setPreferredSize(new java.awt.Dimension(90, 70));
+        btnPaste.setMinimumSize(new java.awt.Dimension(100, 25));
+        btnPaste.setPreferredSize(new java.awt.Dimension(100, 70));
         btnPaste.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPasteActionPerformed(evt);
@@ -159,8 +161,8 @@ public class InterfaceMain extends javax.swing.JPanel {
 
         btnCut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/cut.png"))); // NOI18N
         btnCut.setText("<html>Recortar<br> [Ctrl+X]<html>");
-        btnCut.setMinimumSize(new java.awt.Dimension(90, 25));
-        btnCut.setPreferredSize(new java.awt.Dimension(90, 70));
+        btnCut.setMinimumSize(new java.awt.Dimension(100, 25));
+        btnCut.setPreferredSize(new java.awt.Dimension(100, 70));
         btnCut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCutActionPerformed(evt);
@@ -170,8 +172,8 @@ public class InterfaceMain extends javax.swing.JPanel {
 
         btnCompile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/compile.png"))); // NOI18N
         btnCompile.setText("<html>Compilar <br>[F7]</html>");
-        btnCompile.setMinimumSize(new java.awt.Dimension(90, 25));
-        btnCompile.setPreferredSize(new java.awt.Dimension(90, 70));
+        btnCompile.setMinimumSize(new java.awt.Dimension(100, 25));
+        btnCompile.setPreferredSize(new java.awt.Dimension(100, 70));
         btnCompile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompileActionPerformed(evt);
@@ -182,9 +184,9 @@ public class InterfaceMain extends javax.swing.JPanel {
         btnTeam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/equipe.png"))); // NOI18N
         btnTeam.setText("<html>Equipe <br>[F1]</html>");
         btnTeam.setToolTipText("Aqui você encontrará informações sobre a equipe que realizou esse projeto.");
-        btnTeam.setMinimumSize(new java.awt.Dimension(90, 25));
+        btnTeam.setMinimumSize(new java.awt.Dimension(100, 25));
         btnTeam.setName("Equipe"); // NOI18N
-        btnTeam.setPreferredSize(new java.awt.Dimension(90, 70));
+        btnTeam.setPreferredSize(new java.awt.Dimension(100, 70));
         btnTeam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTeamActionPerformed(evt);

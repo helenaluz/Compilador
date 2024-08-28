@@ -50,6 +50,12 @@
           <Properties>
             <Property name="horizontalScrollBarPolicy" type="int" value="32"/>
             <Property name="verticalScrollBarPolicy" type="int" value="22"/>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[200, 200]"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[244, 200]"/>
+            </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
@@ -128,10 +134,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Salvar&lt;br&gt;arquivo&lt;br&gt;[Ctrl+S]&lt;/html&gt;"/>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 25]"/>
+              <Dimension value="[100, 25]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 70]"/>
+              <Dimension value="[100, 70]"/>
             </Property>
           </Properties>
           <Events>
@@ -145,10 +151,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Abrir &lt;br&gt; arquivo&lt;br&gt;[Ctrl+N]&lt;/html&gt;"/>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 25]"/>
+              <Dimension value="[100, 25]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 70]"/>
+              <Dimension value="[100, 70]"/>
             </Property>
           </Properties>
           <Events>
@@ -162,10 +168,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Salvar&lt;br&gt;arquivo&lt;br&gt; [Ctrl+S]&lt;/html&gt;"/>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 25]"/>
+              <Dimension value="[100, 25]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 70]"/>
+              <Dimension value="[100, 70]"/>
             </Property>
           </Properties>
           <Events>
@@ -179,10 +185,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Copiar&lt;br&gt; [Ctrl+C]&lt;/html&gt;"/>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 25]"/>
+              <Dimension value="[100, 25]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 70]"/>
+              <Dimension value="[100, 70]"/>
             </Property>
           </Properties>
           <Events>
@@ -196,10 +202,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Colar&lt;br&gt; [Ctrl+V]&lt;/html&gt;"/>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 25]"/>
+              <Dimension value="[100, 25]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 70]"/>
+              <Dimension value="[100, 70]"/>
             </Property>
           </Properties>
           <Events>
@@ -213,10 +219,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Recortar&lt;br&gt; [Ctrl+X]&lt;html&gt;"/>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 25]"/>
+              <Dimension value="[100, 25]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 70]"/>
+              <Dimension value="[100, 70]"/>
             </Property>
           </Properties>
           <Events>
@@ -230,10 +236,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Compilar &lt;br&gt;[F7]&lt;/html&gt;"/>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 25]"/>
+              <Dimension value="[100, 25]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 70]"/>
+              <Dimension value="[100, 70]"/>
             </Property>
           </Properties>
           <Events>
@@ -248,11 +254,11 @@
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Equipe &lt;br&gt;[F1]&lt;/html&gt;"/>
             <Property name="toolTipText" type="java.lang.String" value="Aqui voc&#xea; encontrar&#xe1; informa&#xe7;&#xf5;es sobre a equipe que realizou esse projeto."/>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 25]"/>
+              <Dimension value="[100, 25]"/>
             </Property>
             <Property name="name" type="java.lang.String" value="Equipe" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 70]"/>
+              <Dimension value="[100, 70]"/>
             </Property>
           </Properties>
           <Events>
