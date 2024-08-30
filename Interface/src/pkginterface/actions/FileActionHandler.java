@@ -9,39 +9,24 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class FileActionHandler {
     
-    public void openFile(Component parent, JTextArea editor) {
-        // Cria o JFileChooser e define um filtro para arquivos de texto (.txt)
+    public static File openFile(Component parent, JTextArea editor) {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileFilter(new FileNameExtensionFilter("Text Files", "txt"));
-
-        // Armazena o conteúdo atual do editor
         String currentEditorContent = editor.getText();
-
-        // Mostra a janela de diálogo para abrir arquivos
         int result = fileChooser.showOpenDialog(parent);
-
         if (result == JFileChooser.APPROVE_OPTION) {
-            // Usuário selecionou um arquivo
             File selectedFile = fileChooser.getSelectedFile();
-
             try (BufferedReader reader = new BufferedReader(new FileReader(selectedFile))) {
-                // Lê o conteúdo do arquivo no editor
                 editor.read(reader, null);
-
-                // Limpa a área de mensagens
-                //EditorUtils.limpaAreas();
-
-                // Atualiza a barra de status com o nome do arquivo
-                //EditorUtils.atualizaStatus(selectedFile.getPath());
-
+                return selectedFile.getAbsoluteFile(); 
             } catch (IOException e) {
-                // Tratar possíveis exceções de leitura de arquivo
                 JOptionPane.showMessageDialog(parent, "Erro ao abrir o arquivo.", "Erro", JOptionPane.ERROR_MESSAGE);
             }
-        } else {
-            // Nenhum arquivo foi selecionado, restaura o conteúdo anterior do editor
+        } else {        
             editor.setText(currentEditorContent);
+            return null; 
         }
+        return null;
     }
 
   
@@ -56,9 +41,7 @@ public class FileActionHandler {
         }
     }
 
-
-
-    public static String  criarSalvarArquivo(JTextArea conteudo) {     
+    public static String criarSalvarArquivo(JTextArea conteudo) {     
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Escolha o local e o nome do arquivo");
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -94,13 +77,14 @@ public class FileActionHandler {
     }
 
 
-    public static void salvar(JTextArea conteudo, File existeArquivo){
-       if(existeArquivo != null || existeArquivo.exists()){
-           atualizaArquivo(existeArquivo, conteudo);
+    public static String salvar(JTextArea conteudo, File arquivo){
+      String caminho = arquivo.getAbsolutePath();
+       if((conteudo != null) && arquivo.exists()){            
+           atualizaArquivo(arquivo, conteudo);
       }else{
-           criarSalvarArquivo(conteudo);
-      }    
-   
+          caminho = criarSalvarArquivo(conteudo);
+      }       
+        return caminho;
     }
         
         //TODO: logica para salvar o arquivo

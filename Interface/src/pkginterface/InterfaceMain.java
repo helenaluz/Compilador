@@ -5,6 +5,11 @@
 package pkginterface;
 
 import java.awt.event.ActionEvent;
+import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
@@ -13,13 +18,14 @@ import javax.swing.KeyStroke;
 import pkginterface.actions.FileActionHandler;
 import pkginterface.utils.EditorUtils;
 import pkginterface.NumberedBorder;  
+import pkginterface.actions.*;
 
 /**
  *
  * @author Samsung
  */
 public class InterfaceMain extends javax.swing.JPanel {
-
+    File ArqStatus = new File("");
     /**
      * Creates new form InterfaceMain
      */
@@ -37,7 +43,15 @@ public class InterfaceMain extends javax.swing.JPanel {
         //atalhos botoes de acao
         EditorUtils.addShortcut(this, KeyStroke.getKeyStroke("control N"), "newFile", e -> btnNewFileActionPerformed(null));
         EditorUtils.addShortcut(this, KeyStroke.getKeyStroke("control O"), "openFile", e -> btnOpenFileActionPerformed(null));
-        EditorUtils.addShortcut(this, KeyStroke.getKeyStroke("control S"), "saveFile", e -> btnSaveFileActionPerformed(null));
+        EditorUtils.addShortcut(this, KeyStroke.getKeyStroke("control S"), "saveFile", e -> btnSaveFileActionPerformed(null));        
+        EditorUtils.addShortcut(this, KeyStroke.getKeyStroke("control C"), "copy", e -> EditActionHandler.copiar(jTextArea4));
+        EditorUtils.addShortcut(this, KeyStroke.getKeyStroke("control V"), "paste", e -> {
+        try {
+            EditActionHandler.colar(jTextArea4);
+            } catch (Exception ex) {
+            }
+         });
+        EditorUtils.addShortcut(this, KeyStroke.getKeyStroke("control X"), "cut", e -> EditActionHandler.cortar(jTextArea4));
         EditorUtils.addShortcut(this, KeyStroke.getKeyStroke("F7"), "compile", e -> btnCompileActionPerformed(null));
         EditorUtils.addShortcut(this, KeyStroke.getKeyStroke("F1"), "team", e -> btnTeamActionPerformed(null));
     }
@@ -55,7 +69,7 @@ public class InterfaceMain extends javax.swing.JPanel {
         jTextArea4 = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         MessageTxt = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
+        lbStatus = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnNewFile = new javax.swing.JButton();
         btnOpenFile = new javax.swing.JButton();
@@ -98,16 +112,21 @@ public class InterfaceMain extends javax.swing.JPanel {
 
         add(jSplitPane2, java.awt.BorderLayout.CENTER);
 
-        jLabel1.setText("Status");
-        add(jLabel1, java.awt.BorderLayout.PAGE_END);
+        lbStatus.setText("Caminho:");
+        lbStatus.setMaximumSize(new java.awt.Dimension(1000, 1000));
+        lbStatus.setMinimumSize(new java.awt.Dimension(900, 25));
+        lbStatus.setPreferredSize(new java.awt.Dimension(900, 25));
+        add(lbStatus, java.awt.BorderLayout.PAGE_END);
 
-        jPanel1.setMinimumSize(new java.awt.Dimension(900, 25));
-        jPanel1.setPreferredSize(new java.awt.Dimension(900, 80));
+        jPanel1.setMinimumSize(new java.awt.Dimension(900, 70));
+        jPanel1.setPreferredSize(new java.awt.Dimension(900, 70));
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 7));
 
         btnNewFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/newfile.png"))); // NOI18N
-        btnNewFile.setText("<html>Salvar<br>arquivo<br>[Ctrl+S]</html>");
-        btnNewFile.setMinimumSize(new java.awt.Dimension(100, 25));
-        btnNewFile.setPreferredSize(new java.awt.Dimension(100, 70));
+        btnNewFile.setLabel("<html>novo<br>[ctrl-n]</html>");
+        btnNewFile.setMaximumSize(new java.awt.Dimension(1000, 1000));
+        btnNewFile.setMinimumSize(new java.awt.Dimension(90, 40));
+        btnNewFile.setPreferredSize(new java.awt.Dimension(85, 50));
         btnNewFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNewFileActionPerformed(evt);
@@ -116,9 +135,11 @@ public class InterfaceMain extends javax.swing.JPanel {
         jPanel1.add(btnNewFile);
 
         btnOpenFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/openfile.png"))); // NOI18N
-        btnOpenFile.setText("<html>Abrir <br> arquivo<br>[Ctrl+N]</html>");
-        btnOpenFile.setMinimumSize(new java.awt.Dimension(100, 25));
-        btnOpenFile.setPreferredSize(new java.awt.Dimension(100, 70));
+        btnOpenFile.setText("<html>abrir <br>[ctrl-n]</html>");
+        btnOpenFile.setToolTipText("");
+        btnOpenFile.setMaximumSize(new java.awt.Dimension(1000, 1000));
+        btnOpenFile.setMinimumSize(new java.awt.Dimension(90, 40));
+        btnOpenFile.setPreferredSize(new java.awt.Dimension(85, 50));
         btnOpenFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOpenFileActionPerformed(evt);
@@ -127,9 +148,10 @@ public class InterfaceMain extends javax.swing.JPanel {
         jPanel1.add(btnOpenFile);
 
         btnSaveFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/savefile.png"))); // NOI18N
-        btnSaveFile.setText("<html>Salvar<br>arquivo<br> [Ctrl+S]</html>");
-        btnSaveFile.setMinimumSize(new java.awt.Dimension(100, 25));
-        btnSaveFile.setPreferredSize(new java.awt.Dimension(100, 70));
+        btnSaveFile.setText("<html>salvar<br> [ctrl-s]</html>");
+        btnSaveFile.setMaximumSize(new java.awt.Dimension(1000, 1000));
+        btnSaveFile.setMinimumSize(new java.awt.Dimension(90, 40));
+        btnSaveFile.setPreferredSize(new java.awt.Dimension(85, 50));
         btnSaveFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveFileActionPerformed(evt);
@@ -138,9 +160,10 @@ public class InterfaceMain extends javax.swing.JPanel {
         jPanel1.add(btnSaveFile);
 
         btnCopy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/copy.png"))); // NOI18N
-        btnCopy.setText("<html>Copiar<br> [Ctrl+C]</html>");
-        btnCopy.setMinimumSize(new java.awt.Dimension(100, 25));
-        btnCopy.setPreferredSize(new java.awt.Dimension(100, 70));
+        btnCopy.setText("<html>copiar<br> [ctrl-c]</html>");
+        btnCopy.setMaximumSize(new java.awt.Dimension(1000, 1000));
+        btnCopy.setMinimumSize(new java.awt.Dimension(90, 40));
+        btnCopy.setPreferredSize(new java.awt.Dimension(85, 50));
         btnCopy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCopyActionPerformed(evt);
@@ -149,9 +172,10 @@ public class InterfaceMain extends javax.swing.JPanel {
         jPanel1.add(btnCopy);
 
         btnPaste.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/paste.png"))); // NOI18N
-        btnPaste.setText("<html>Colar<br> [Ctrl+V]</html>");
-        btnPaste.setMinimumSize(new java.awt.Dimension(100, 25));
-        btnPaste.setPreferredSize(new java.awt.Dimension(100, 70));
+        btnPaste.setText("<html>colar<br> [ctrl-v]</html>");
+        btnPaste.setMaximumSize(new java.awt.Dimension(1000, 1000));
+        btnPaste.setMinimumSize(new java.awt.Dimension(90, 40));
+        btnPaste.setPreferredSize(new java.awt.Dimension(85, 50));
         btnPaste.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPasteActionPerformed(evt);
@@ -160,9 +184,10 @@ public class InterfaceMain extends javax.swing.JPanel {
         jPanel1.add(btnPaste);
 
         btnCut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/cut.png"))); // NOI18N
-        btnCut.setText("<html>Recortar<br> [Ctrl+X]<html>");
-        btnCut.setMinimumSize(new java.awt.Dimension(100, 25));
-        btnCut.setPreferredSize(new java.awt.Dimension(100, 70));
+        btnCut.setText("<html>recortar<br> [ctrl-x]<html>");
+        btnCut.setMaximumSize(new java.awt.Dimension(1000, 1000));
+        btnCut.setMinimumSize(new java.awt.Dimension(90, 40));
+        btnCut.setPreferredSize(new java.awt.Dimension(85, 50));
         btnCut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCutActionPerformed(evt);
@@ -171,9 +196,10 @@ public class InterfaceMain extends javax.swing.JPanel {
         jPanel1.add(btnCut);
 
         btnCompile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/compile.png"))); // NOI18N
-        btnCompile.setText("<html>Compilar <br>[F7]</html>");
-        btnCompile.setMinimumSize(new java.awt.Dimension(100, 25));
-        btnCompile.setPreferredSize(new java.awt.Dimension(100, 70));
+        btnCompile.setText("<html>compilar <br>[F7]</html>");
+        btnCompile.setMaximumSize(new java.awt.Dimension(1000, 1000));
+        btnCompile.setMinimumSize(new java.awt.Dimension(90, 40));
+        btnCompile.setPreferredSize(new java.awt.Dimension(85, 50));
         btnCompile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompileActionPerformed(evt);
@@ -182,11 +208,12 @@ public class InterfaceMain extends javax.swing.JPanel {
         jPanel1.add(btnCompile);
 
         btnTeam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkginterface/resources/equipe.png"))); // NOI18N
-        btnTeam.setText("<html>Equipe <br>[F1]</html>");
+        btnTeam.setText("<html>equipe <br>[F1]</html>");
         btnTeam.setToolTipText("Aqui você encontrará informações sobre a equipe que realizou esse projeto.");
-        btnTeam.setMinimumSize(new java.awt.Dimension(100, 25));
+        btnTeam.setMaximumSize(new java.awt.Dimension(1000, 1000));
+        btnTeam.setMinimumSize(new java.awt.Dimension(90, 55));
         btnTeam.setName("Equipe"); // NOI18N
-        btnTeam.setPreferredSize(new java.awt.Dimension(100, 70));
+        btnTeam.setPreferredSize(new java.awt.Dimension(85, 50));
         btnTeam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTeamActionPerformed(evt);
@@ -202,31 +229,50 @@ public class InterfaceMain extends javax.swing.JPanel {
     private void btnNewFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewFileActionPerformed
         // TODO add your handling code here:
         EditorUtils.limpaAreas(jTextArea4);
+        lbStatus.setText("Caminho:");
+        MessageTxt.setText("           ");
+        
     }//GEN-LAST:event_btnNewFileActionPerformed
 
     private void btnOpenFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenFileActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:        
         FileActionHandler fah = new FileActionHandler();
-        //TODO: linkar elementos que serao 'limpos' ao abrir um arquivo
-        fah.openFile(this, jTextArea4);
-        //EditorUtils.limpaAreas();
+        ArqStatus =  fah.openFile(this, jTextArea4);
+        lbStatus.setText("Caminho:" + ArqStatus.getAbsolutePath());
+        MessageTxt.setText("           ");
     }//GEN-LAST:event_btnOpenFileActionPerformed
 
     private void btnSaveFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveFileActionPerformed
         // TODO add your handling code here:
-        FileActionHandler.criarSalvarArquivo(jTextArea4);
+        String caminhoCompleto = lbStatus.getText();
+        String separador = ":"; 
+        int indiceInicioCaminho = caminhoCompleto.indexOf(separador) + separador.length();
+        String caminho = caminhoCompleto.substring(indiceInicioCaminho);        
+        File caminhoArq = new File(caminho);         
+        lbStatus.setText("Caminho:" + FileActionHandler.salvar(jTextArea4,  caminhoArq ));   
+        MessageTxt.setText("           ");
     }//GEN-LAST:event_btnSaveFileActionPerformed
 
     private void btnCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCopyActionPerformed
         // TODO add your handling code here:
+        EditActionHandler.copiar(jTextArea4);
+        
     }//GEN-LAST:event_btnCopyActionPerformed
 
     private void btnPasteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasteActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            EditActionHandler.colar(jTextArea4);
+        } catch (UnsupportedFlavorException ex) {
+            Logger.getLogger(InterfaceMain.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfaceMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnPasteActionPerformed
 
     private void btnCutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCutActionPerformed
         // TODO add your handling code here:
+        EditActionHandler.cortar(jTextArea4);
     }//GEN-LAST:event_btnCutActionPerformed
 
     private void btnCompileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompileActionPerformed
@@ -250,11 +296,11 @@ public class InterfaceMain extends javax.swing.JPanel {
     private javax.swing.JButton btnPaste;
     private javax.swing.JButton btnSaveFile;
     private javax.swing.JButton btnTeam;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSplitPane jSplitPane2;
     public javax.swing.JTextArea jTextArea4;
+    private javax.swing.JLabel lbStatus;
     // End of variables declaration//GEN-END:variables
 }

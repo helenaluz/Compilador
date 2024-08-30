@@ -12,7 +12,6 @@ import java.io.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class EditActionHandler {
-    //TODO: copiar, colar, recortar e talvez equipe (mais basico)
 
     public static void copiar(JTextArea conteudo) {
         String selecionado = ""; 
@@ -36,9 +35,9 @@ public class EditActionHandler {
         Transferable dados = areaTranfe.getContents(null);
         
         try{
-        if(dados != null && dados.isDataFlavorSupported(DataFlavor.stringFlavor)){  // verifica se p tipo de dado é suportado pelo Tranferable
+        if(dados != null && dados.isDataFlavorSupported(DataFlavor.stringFlavor)){ 
             String textoCopiado = (String)dados.getTransferData(DataFlavor.stringFlavor);
-            conteudo.insert(textoCopiado, conteudo.getCaretPosition()); // getCaretPosition possição do cursor
+            conteudo.insert(textoCopiado, conteudo.getCaretPosition()); 
         }
         }catch(UnsupportedFlavorException | IOException e){
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
@@ -46,18 +45,12 @@ public class EditActionHandler {
 
     }
 
-    public void cortar() {
-
+    public static void cortar(JTextArea conteudo) {
+        copiar(conteudo);
+        conteudo.setText("");
     }
 
-    public void equipe() {
-        /*
-        return "Helena Luz, Luana Nitsche, Maria Eduarda Nascimento";
-         */
-    }
+ 
 
-    /*
-    Talvez criar uma funcao para os atalhos que chamarao as funcoes de cada botao (nao sei como funciona essa parte)
-    att: vi algo sobre KeyBind;
-     */
+    
 }
