@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.File;
 import java.io.IOException;
+import java.io.StringReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.AbstractAction;
@@ -277,7 +278,8 @@ public class InterfaceMain extends javax.swing.JPanel {
 
     private void btnCompileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompileActionPerformed
         // TODO add your handling code here:
-        MessageTxt.setText("compilação de programas ainda não foi implementada");
+        String messagem = CompileActionHandler.compilar(jTextArea4.getText());
+        MessageTxt.setText(messagem);
     }//GEN-LAST:event_btnCompileActionPerformed
 
     private void btnTeamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTeamActionPerformed
