@@ -24,8 +24,12 @@ public class AnalisadorLexico {
                 
                 int posicao = t.getPosition();
                 int linha = obterLinha(input, posicao);
-                var classe = obterTipoToken(t.getId());
+                String classe = obterTipoToken(t.getId());
                 String lexema = t.getLexeme();
+                
+                if (classe.equals("reservada")) {
+                    throw new LexicalError("palavra reservada inválida", posicao);
+                }
                 
                 sb.append(String.format("%-10d %-30s %-100s\n", linha, classe, lexema));
               // esse código apresenta os tokens enquanto não ocorrer erro
