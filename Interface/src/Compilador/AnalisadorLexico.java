@@ -42,7 +42,8 @@ public class AnalisadorLexico {
         catch ( LexicalError e ) {  
             int posicao = e.getPosition();
             int linha = obterLinha(input, posicao);
-            return ("Linha "+linha+": "+e.getMessage());
+            
+            return ("Linha "+linha+": "+obterLexemaNaPosicao(input, posicao)+" "+e.getMessage());
           // e.getMessage() - retorna a mensagem de erro de SCANNER_ERRO (olhar ScannerConstants.java 
           // e adaptar conforme o enunciado da parte 2)
          } 
@@ -111,6 +112,22 @@ public class AnalisadorLexico {
                 linha++;
             }
         }
+        
         return linha;
+    }
+    
+    public static String obterLexemaNaPosicao(String input, int posicao) {
+        int start = posicao;
+
+        while (start < input.length() && Character.isWhitespace(input.charAt(start))) {
+            start++;
+        }
+
+        int end = start;
+        while (end < input.length() && !Character.isWhitespace(input.charAt(end))) {
+            end++;
+        }
+
+        return input.substring(start, end);
     }
 }
