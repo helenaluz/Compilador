@@ -1,0 +1,84 @@
+#Options
+GenerateScanner = true
+GenerateParser = false
+Language = Java
+ScannerName = Lexico
+ScannerCaseSensitive = true
+ScannerTable = Compact
+Input = String
+#RegularDefinitions
+max: [A-Z]
+min: [a-z]
+
+letra: {min} | {max}
+prefixo: i"_"| f"_" | b"_" | s"_"
+digito: [0-9]
+umAnove: [1-9]
+aspas: \"
+abreC: ">@"\n
+fechaC: \n"@<"
+virgula: ","
+#Tokens
+//Helena M. Luz, Luana Nitsche, Maria Eduarda Nascimento
+
+constante_float: (0| ({umAnove}({digito})*)) {virgula} ({digito}| ({digito}*{umAnove}))
+
+constante_int: 0| ({umAnove}({digito})*)
+
+reservada: {min} ({letra})*
+
+identificador:! {prefixo} ({max} | {min}{max}?)(({min}|{digito}){max}?)*
+
+constante_string: {aspas} ([^\n\"%] | "%" "x"+)* {aspas}
+
+:! {abreC} ([^@}])* {fechaC}
+
+
+pr_main = reservada: "main"
+
+pr_end = reservada : "end"
+
+pr_if = reservada : "if"
+ 
+pr_elif = reservada : "elif"
+
+pr_else = reservada : "else"
+
+pr_false = reservada : "false"
+
+pr_true = reservada : "true"
+
+pr_read = reservada : "read"
+
+pr_write = reservada : "write"
+
+pr_writeln = reservada : "writeln"
+
+pr_repeat = reservada : "repeat"
+
+pr_until = reservada : "until"
+
+pr_while = reservada : "while"
+
+
+"&&"
+"||" 
+"!"
+"=="
+"!=" 
+"<"
+">"
+"+"
+"-"
+"*"
+"/"
+","
+";"
+"="
+"("
+")"
+
+
+:[\s\t\n] //reconhecer caracteres de formatacao
+
+//pr_classe = reservada: "classe"

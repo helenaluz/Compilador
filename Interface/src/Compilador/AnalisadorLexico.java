@@ -3,6 +3,7 @@ package Compilador;
 
 
 import java.io.StringReader;
+import java.util.Arrays;
 import pkggals.*;
 import javax.swing.*;
 
@@ -39,14 +40,26 @@ public class AnalisadorLexico {
             
             sb.append("\nPrograma compilado com sucesso!");
         }
-        catch ( LexicalError e ) {  
+        catch (LexicalError e) {  
             int posicao = e.getPosition();
             int linha = obterLinha(input, posicao);
-            
-            return ("Linha "+linha+": "+obterLexemaNaPosicao(input, posicao)+" "+e.getMessage());
-          // e.getMessage() - retorna a mensagem de erro de SCANNER_ERRO (olhar ScannerConstants.java 
-          // e adaptar conforme o enunciado da parte 2)
-         } 
+            String mensagemOriginal = e.getMessage();
+
+            String[] palavrasMensagem = mensagemOriginal.split(" ");
+            String primeiraPalavra = palavrasMensagem.length > 0 ? palavrasMensagem[0] : "";
+
+            String[] palavrasEscolhidas = {"palavra", "símbolo", "identificador"};
+
+            String mensagem = "Linha " + linha + ": ";
+
+            if (Arrays.asList(palavrasEscolhidas).contains(primeiraPalavra)) {
+                mensagem += obterLexemaNaPosicao(input, posicao) + " " + mensagemOriginal;
+            } else {
+                mensagem += mensagemOriginal;
+            }
+
+            return mensagem;
+        }
         
         return sb.toString();
     }
