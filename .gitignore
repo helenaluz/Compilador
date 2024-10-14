@@ -1,1 +1,3 @@
 /Interface/dist/
+# Ignore all .class files
+*.class
