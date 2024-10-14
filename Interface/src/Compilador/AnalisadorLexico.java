@@ -1,6 +1,4 @@
-
 package Compilador;
-
 
 import java.io.StringReader;
 import java.util.Arrays;
@@ -8,40 +6,24 @@ import pkggals.*;
 import javax.swing.*;
 
 public class AnalisadorLexico {
-    
-    public String AnaisadorLexico(String input){
-        
+
+    public String AnaisadorLexico(String input) {
+
         Lexico lexico = new Lexico();
+        Sintatico sintatico = new Sintatico();
+        Semantico semantico = new Semantico();
         StringBuilder sb = new StringBuilder();
         StringReader reader = new StringReader(input);
-        
+
         lexico.setInput(reader);
-        
+
         sb.append(String.format("%-7s %-30s %-100s\n", "Linha", "Classe", "Lexema"));
-        
+
         try {
-            Token t = null;
-            
-            while ( (t = lexico.nextToken()) != null ) {
-                
-                int posicao = t.getPosition();
-                int linha = obterLinha(input, posicao);
-                String classe = obterTipoToken(t.getId());
-                String lexema = t.getLexeme();
-                
-                if (classe.equals("reservada")) {
-                    throw new LexicalError("palavra reservada inválida", posicao);
-                }
-                
-                sb.append(String.format("%-10d %-30s %-100s\n", linha, classe, lexema));
-              // esse código apresenta os tokens enquanto não ocorrer erro
-              // no entanto, os tokens devem ser apresentados SÓ se não ocorrer erro, necessário adaptar 
-             // para atender o que foi solicitado		   
-            }
-            
+            lexico(lexico, input);
+            sintatico.parse(lexico, semantico);
             sb.append("\nPrograma compilado com sucesso!");
-        }
-        catch (LexicalError e) {  
+        } catch (LexicalError e) {
             int posicao = e.getPosition();
             int linha = obterLinha(input, posicao);
             String mensagemOriginal = e.getMessage();
@@ -60,21 +42,31 @@ public class AnalisadorLexico {
             }
 
             return mensagem;
+        } catch (SyntaticError e) {
+            System.out.println(e.getPosition() + " símbolo encontrado: na entrada " + e.getMessage());
+
+            //Trata erros sintáticos
+            //linha 			      sugestão: converter getPosition em linha
+            //símbolo encontrado    sugestão: implementar um método getToken no sintatico
+            //símbolos esperados,   alterar ParserConstants.java, String[] PARSER_ERROR
+            // consultar os símbolos esperados no GALS (em Documentação > Tabela de Análise Sintática): 		
+        } catch (SemanticError e) {
+            //Trata erros semânticos
         }
-        
+
         return sb.toString();
     }
-    
+
     private static String obterTipoToken(int id) {
 
         int[] idsSimbolosEspeciais = {20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35};
-        
+
         for (int simbolo : idsSimbolosEspeciais) {
             if (id == simbolo) {
                 return "simbolo especial";
             }
         }
-    
+
         switch (id) {
             case 2:
                 return "constante_float";
@@ -119,17 +111,17 @@ public class AnalisadorLexico {
 
     private static int obterLinha(String input, int posicao) {
         String substring = input.substring(0, posicao);
-    
-        int linha = 1; 
+
+        int linha = 1;
         for (char c : substring.toCharArray()) {
             if (c == '\n') {
                 linha++;
             }
         }
-        
+
         return linha;
     }
-    
+
     public static String obterLexemaNaPosicao(String input, int posicao) {
         int start = posicao;
 
@@ -143,5 +135,26 @@ public class AnalisadorLexico {
         }
 
         return input.substring(start, end);
+    }
+
+    private void lexico(Lexico lexico, String input) throws LexicalError {
+        Token t = null;
+
+        while ((t = lexico.nextToken()) != null) {
+
+            int posicao = t.getPosition();
+            int linha = obterLinha(input, posicao);
+            String classe = obterTipoToken(t.getId());
+            String lexema = t.getLexeme();
+
+            if (classe.equals("reservada")) {
+                throw new LexicalError("palavra reservada inválida", posicao);
+            }
+
+            // sb.append(String.format("%-10d %-30s %-100s\n", linha, classe, lexema));
+            // esse código apresenta os tokens enquanto não ocorrer erro
+            // no entanto, os tokens devem ser apresentados SÓ se não ocorrer erro, necessário adaptar 
+            // para atender o que foi solicitado		   
+        }
     }
 }
