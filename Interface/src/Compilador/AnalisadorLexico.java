@@ -13,8 +13,9 @@ public class AnalisadorLexico {
         
         Lexico lexico = new Lexico();
         StringBuilder sb = new StringBuilder();
+        StringReader reader = new StringReader(input);
         
-        lexico.setInput(input);
+        lexico.setInput(reader);
         
         sb.append(String.format("%-7s %-30s %-100s\n", "Linha", "Classe", "Lexema"));
         
