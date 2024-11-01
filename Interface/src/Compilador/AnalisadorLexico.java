@@ -2,6 +2,7 @@ package Compilador;
 
 import java.io.StringReader;
 import java.util.Arrays;
+import java.util.Objects;
 import pkggals.*;
 import javax.swing.*;
 
@@ -17,12 +18,9 @@ public class AnalisadorLexico {
 
         lexico.setInput(reader);
 
-        sb.append(String.format("%-7s %-30s %-100s\n", "Linha", "Classe", "Lexema"));
-
         try {
-            lexico(lexico, input);
             sintatico.parse(lexico, semantico);
-            sb.append("\nPrograma compilado com sucesso!");
+            sb.append("Programa compilado com sucesso!");
         } catch (LexicalError e) {
             int posicao = e.getPosition();
             int linha = obterLinha(input, posicao);
@@ -33,23 +31,35 @@ public class AnalisadorLexico {
 
             String[] palavrasEscolhidas = {"palavra", "símbolo", "identificador"};
 
-            String mensagem = "Linha " + linha + ": ";
-
+            String mensagem = "Erro na linha " + linha + " - ";
+            String lexema =obterLexemaNaPosicao(input, posicao);
+            
             if (Arrays.asList(palavrasEscolhidas).contains(primeiraPalavra)) {
-                mensagem += obterLexemaNaPosicao(input, posicao) + " " + mensagemOriginal;
-            } else {
+                mensagem += lexema + " " + mensagemOriginal;
+            }
+            else {
                 mensagem += mensagemOriginal;
             }
-
+            
             return mensagem;
         } catch (SyntaticError e) {
-            System.out.println(e.getPosition() + " símbolo encontrado: na entrada " + e.getMessage());
-
-            //Trata erros sintáticos
-            //linha 			      sugestão: converter getPosition em linha
-            //símbolo encontrado    sugestão: implementar um método getToken no sintatico
-            //símbolos esperados,   alterar ParserConstants.java, String[] PARSER_ERROR
-            // consultar os símbolos esperados no GALS (em Documentação > Tabela de Análise Sintática): 		
+            int posicao = e.getPosition();
+            int linha = obterLinha(input, posicao);
+            String mensagemOriginal = e.getMessage();
+            String mensagem = "Erro na linha " + linha + " - encontrado ";
+            String lexemaTemp = obterLexemaNaPosicao(input, posicao);
+            String zoada = identificaConstante(lexemaTemp);
+            String lexema = "";
+            
+            if(zoada== null && lexemaTemp != null && !lexemaTemp.trim().isEmpty()){
+                lexema = lexemaTemp;
+            } 
+            else if(zoada != null) lexema = zoada;
+            else lexema = "EOF";
+                
+            mensagem += lexema + " " + mensagemOriginal;
+            return mensagem;
+            
         } catch (SemanticError e) {
             //Trata erros semânticos
         }
@@ -129,14 +139,34 @@ public class AnalisadorLexico {
             start++;
         }
 
-        int end = start;
-        while (end < input.length() && !Character.isWhitespace(input.charAt(end))) {
-            end++;
-        }
+        if (start < input.length() && input.charAt(start) == '\"') {
+            int end = start + 1;
+            while (end < input.length() && input.charAt(end) != '\"') {
+                end++;
+            }
+            if (end < input.length()) {
+                end++;
+            }
+            return input.substring(start, end);
 
-        return input.substring(start, end);
+        } else {
+            int end = start;
+            while (end < input.length() && !Character.isWhitespace(input.charAt(end))) {
+                end++;
+            }
+            return input.substring(start, end);
+        }
     }
 
+
+        public static String identificaConstante(String input) {
+        if (input.matches("^\".*\"$")) {
+            return "constante_string";}
+        
+        return null;
+        }
+    
+        
     private void lexico(Lexico lexico, String input) throws LexicalError {
         Token t = null;
 
