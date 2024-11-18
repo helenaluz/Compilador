@@ -1,5 +1,3 @@
-package pkggals;
-
 import java.util.Stack;
 
 public class Sintatico implements Constants

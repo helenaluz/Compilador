@@ -1,6 +1,3 @@
-package pkggals;
-
-
 public class AnalysisError extends Exception
 {
     private int position;

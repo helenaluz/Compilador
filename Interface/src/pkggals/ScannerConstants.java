@@ -1,6 +1,3 @@
-package pkggals;
-
-
 public interface ScannerConstants
 {
     int[] SCANNER_TABLE_INDEXES = 
@@ -41,14 +38,14 @@ public interface ScannerConstants
         591,
         783,
         793,
-        984,
-        1020,
-        1082,
-        1092,
-        1284,
-        1346,
-        1347,
-        1347
+        985,
+        1021,
+        1083,
+        1093,
+        1286,
+        1348,
+        1349,
+        1349
     };
 
     int[][] SCANNER_TABLE = 
@@ -941,6 +938,7 @@ public interface ScannerConstants
         {122, 35},
         {123, 35},
         {124, 35},
+        {125, 35},
         {126, 35},
         {161, 35},
         {162, 35},
@@ -1241,6 +1239,7 @@ public interface ScannerConstants
         {122, 35},
         {123, 35},
         {124, 35},
+        {125, 35},
         {126, 35},
         {161, 35},
         {162, 35},
@@ -1415,14 +1414,11 @@ public interface ScannerConstants
 
     String[] SCANNER_ERROR =
     {
-        "símbolo inválido",
+        "Caractere não esperado",
         "",
         "",
-        "constante_string invalida",
-        "símbolo invalido",
-        "",
-        "",
-        "",
+        "Erro identificando constante_string",
+        "Erro identificando \"&&\"",
         "",
         "",
         "",
@@ -1438,25 +1434,28 @@ public interface ScannerConstants
         "",
         "",
         "",
-        "símbolo invalido",
         "",
         "",
-        "constante_string invalida",
         "",
-        "cte_float invalido",
-        "",
-        "comentario de bloco invalido ou nao finalizado",
-        "identificador invalido",
-        "",
-        "constante_string invalida",
-        "",
-        "comentario de bloco invalido ou nao finalizado",
+        "Erro identificando \"||\"",
         "",
         "",
-        "cte_float invalido",
-        "comentario de bloco invalido ou nao finalizado",
+        "Erro identificando constante_string",
         "",
-        "comentario de bloco invalido ou nao finalizado",
+        "Erro identificando constante_float",
+        "",
+        "Erro identificando <ignorar>",
+        "Erro identificando identificador",
+        "",
+        "Erro identificando constante_string",
+        "",
+        "Erro identificando <ignorar>",
+        "",
+        "",
+        "Erro identificando constante_float",
+        "Erro identificando <ignorar>",
+        "",
+        "Erro identificando <ignorar>",
         ""
     };
 
