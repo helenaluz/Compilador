@@ -1,3 +1,6 @@
+package pkggals;
+
+
 public interface ScannerConstants
 {
     int[] SCANNER_TABLE_INDEXES = 

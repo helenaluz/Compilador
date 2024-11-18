@@ -1,3 +1,6 @@
+package pkggals;
+
+
 public interface Constants extends ScannerConstants, ParserConstants
 {
     int EPSILON  = 0;

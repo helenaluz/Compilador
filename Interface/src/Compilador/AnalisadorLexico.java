@@ -32,7 +32,7 @@ public class AnalisadorLexico {
             String[] palavrasEscolhidas = {"palavra", "símbolo", "identificador"};
 
             String mensagem = "Erro na linha " + linha + " - ";
-            String lexema =obterLexemaNaPosicao(input, posicao);
+            String lexema = obterLexemaNaPosicao(input, posicao);
             
             if (Arrays.asList(palavrasEscolhidas).contains(primeiraPalavra)) {
                 mensagem += lexema + " " + mensagemOriginal;
