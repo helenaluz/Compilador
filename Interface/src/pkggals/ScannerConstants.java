@@ -1,6 +1,5 @@
 package pkggals;
 
-
 public interface ScannerConstants
 {
     int[] SCANNER_TABLE_INDEXES = 
@@ -1417,14 +1416,11 @@ public interface ScannerConstants
 
     String[] SCANNER_ERROR =
     {
-        "Caractere não esperado",
+        "símbolo inválido",
         "",
         "",
-        "Erro identificando constante_string",
-        "Erro identificando \"&&\"",
-        "",
-        "",
-        "",
+        "constante_string invalida",
+        "símbolo invalido",
         "",
         "",
         "",
@@ -1440,25 +1436,28 @@ public interface ScannerConstants
         "",
         "",
         "",
-        "Erro identificando \"||\"",
         "",
         "",
-        "Erro identificando constante_string",
         "",
-        "Erro identificando constante_float",
-        "",
-        "Erro identificando <ignorar>",
-        "Erro identificando identificador",
-        "",
-        "Erro identificando constante_string",
-        "",
-        "Erro identificando <ignorar>",
+        "símbolo invalido",
         "",
         "",
-        "Erro identificando constante_float",
-        "Erro identificando <ignorar>",
+        "constante_string invalida",
         "",
-        "Erro identificando <ignorar>",
+        "cte_float invalido",
+        "",
+        "comentario de bloco invalido ou nao finalizado",
+        "identificador invalido",
+        "",
+        "constante_string invalida",
+        "",
+        "comentario de bloco invalido ou nao finalizado",
+        "",
+        "",
+        "cte_float invalido",
+        "comentario de bloco invalido ou nao finalizado",
+        "",
+        "comentario de bloco invalido ou nao finalizado",
         ""
     };
 

@@ -21,7 +21,9 @@ public class AnalisadorLexico {
         try {
             sintatico.parse(lexico, semantico);
             sb.append("Programa compilado com sucesso!");
+            
         } catch (LexicalError e) {
+            
             int posicao = e.getPosition();
             int linha = obterLinha(input, posicao);
             String mensagemOriginal = e.getMessage();

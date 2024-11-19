@@ -85,7 +85,7 @@ public class Sintatico implements Constants
             //empilha a produção em ordem reversa
             for (int i=production.length-1; i>=0; i--)
             {
-                stack.push(new Integer(production[i]));
+                stack.push(production[i]);
             }
             return true;
         }
@@ -99,12 +99,11 @@ public class Sintatico implements Constants
         this.semanticAnalyser = semanticAnalyser;
 
         stack.clear();
-        stack.push(new Integer(DOLLAR));
-        stack.push(new Integer(START_SYMBOL));
+        stack.push(DOLLAR);
+        stack.push(START_SYMBOL);
 
         currentToken = scanner.nextToken();
 
-        while ( ! step() )
-            ;
+        while (! step());
     }
 }
