@@ -90,32 +90,20 @@ public class AnalisadorLexico {
                 return "identificador";
             case 6:
                 return "constante_string";
-            case 7:
-                return "pr_main";
-            case 8:
-                return "pr_end";
-            case 9:
-                return "pr_if";
-            case 10:
-                return "pr_elif";
-            case 11:
-                return "pr_else";
-            case 12:
-                return "pr_false";
-            case 13:
-                return "pr_true";
-            case 14:
-                return "pr_read";
-            case 15:
-                return "pr_write";
-            case 16:
-                return "pr_writeln";
-            case 17:
-                return "pr_repeat";
-            case 18:
-                return "pr_until";
-            case 19:
-                return "pr_while";
+             case 7:  
+             case 8:  
+             case 9: 
+             case 10: 
+             case 11: 
+             case 12: 
+             case 13: 
+             case 14: 
+             case 15: 
+             case 16:
+             case 17:
+             case 18: 
+             case 19: 
+                return "reservada";
             default:
                 return "token_desconhecido";
         }
