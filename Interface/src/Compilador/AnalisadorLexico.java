@@ -48,7 +48,7 @@ public class AnalisadorLexico {
             int posicao = e.getPosition();
             int linha = obterLinha(input, posicao);
             String mensagemOriginal = e.getMessage();
-            String mensagem = "Erro na linha " + linha + " - encontrado ";
+            String mensagem = "Erro na linha " + linha + " - ";
             String lexemaTemp = obterLexemaNaPosicao(input, posicao);
             String zoada = identificaConstante(lexemaTemp);
             String lexema = "";
