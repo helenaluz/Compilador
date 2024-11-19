@@ -15,10 +15,12 @@ public class AnalisadorLexico {
         Semantico semantico = new Semantico();
         StringBuilder sb = new StringBuilder();
         StringReader reader = new StringReader(input);
-
+        
         lexico.setInput(reader);
+        
 
         try {
+            lexico(lexico, input);
             sintatico.parse(lexico, semantico);
             sb.append("Programa compilado com sucesso!");
             
