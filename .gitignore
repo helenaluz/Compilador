@@ -1,3 +1,6 @@
 /Interface/dist/
 # Ignore all .class files
 *.class
+*.class
+/Interface/build
+Interface/build/classes/pkginterface/actions/CompileActionHandler.class
