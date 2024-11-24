@@ -12,10 +12,10 @@ public class AnalisadorLexico {
         Semantico semantico = new Semantico();
         StringBuilder sb = new StringBuilder();
         
-        lexico.setInput(new StringReader(input));
-
         try {
+            lexico.setInput(new StringReader(input));
             processarLexico(lexico, input);
+            lexico.setInput(new StringReader(input));
             sintatico.parse(lexico, semantico);
             sb.append("Programa compilado com sucesso!");
 
@@ -80,18 +80,42 @@ public class AnalisadorLexico {
         return (int) input.substring(0, posicao).chars().filter(c -> c == '\n').count() + 1;
     }
 
-    public static String obterLexemaNaPosicao(String input, int posicao) {
-        int start = posicao;
-        while (start < input.length() && Character.isWhitespace(input.charAt(start))) start++;
-        
-        if (start < input.length() && input.charAt(start) == '\"') {
-            int end = input.indexOf('\"', start + 1);
-            return end >= 0 ? input.substring(start, end + 1) : input.substring(start);
-        } else {
-            int end = start;
-            while (end < input.length() && !Character.isWhitespace(input.charAt(end))) end++;
-            return input.substring(start, end);
+public static String obterLexemaNaPosicao(String input, int posicao) {
+    int start = posicao;
+
+    while (start < input.length() && Character.isWhitespace(input.charAt(start))) {
+        start++;
+    }
+
+    if (start < input.length() && input.charAt(start) == '\"') {
+        int end = start + 1;
+        while (end < input.length() && input.charAt(end) != '\"') {
+            end++;
         }
+        if (end < input.length()) {
+            end++; 
+        }
+        return input.substring(start, end);
+    } else {
+        int end = start;
+        
+        if (end + 1 < input.length() && isOperatorOrSymbol(input.charAt(end), input.charAt(end + 1))) {
+            end += 2; 
+        } else {
+          
+            while (end < input.length() && !Character.isWhitespace(input.charAt(end)) && !isOperatorOrSymbol(input.charAt(end), input.charAt(end))) {
+                end++;
+            }
+        }
+
+        return input.substring(start, end);
+        }
+    }
+
+    private static boolean isOperatorOrSymbol(char current, char next) {
+        String operator = "" + current + next;
+        
+      return operator.matches("==|!=|<=|>=|&&|\\|\\|");
     }
 
     public static String identificaConstanteString(String input) {
