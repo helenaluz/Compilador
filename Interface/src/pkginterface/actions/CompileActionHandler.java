@@ -10,7 +10,7 @@ public class CompileActionHandler {
     
     public static String compilar(String input) {
         AnalisadorLexico lexico = new AnalisadorLexico();
-        String output = lexico.AnaisadorLexico(input);
+        String output = lexico.analisarLexico(input);
         return output;
     }
 }
