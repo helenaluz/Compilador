@@ -6,11 +6,12 @@ import pkggals.*;
 
 public class AnalisadorLexico {
 
-    public String analisarLexico(String input) {
+    public String analisarLexico(String input, String caminhoArquivo) {
         Lexico lexico = new Lexico();
         Sintatico sintatico = new Sintatico();
         Semantico semantico = new Semantico();
         StringBuilder sb = new StringBuilder();
+        GeradorArquivoIL geradorArquivo = new GeradorArquivoIL();
         
         try {
             lexico.setInput(new StringReader(input));
@@ -18,6 +19,7 @@ public class AnalisadorLexico {
             lexico.setInput(new StringReader(input));
             sintatico.parse(lexico, semantico);
             sb.append("Programa compilado com sucesso!");
+            geradorArquivo.gerarArquivo("BLA", caminhoArquivo);
 
         } catch (LexicalError e) {
             return tratarErroLexico(e, input);

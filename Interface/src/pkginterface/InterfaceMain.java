@@ -235,16 +235,15 @@ public class InterfaceMain extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnNewFileActionPerformed
 
-    private void btnOpenFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenFileActionPerformed
-        // TODO add your handling code here:        
+    private void btnOpenFileActionPerformed(java.awt.event.ActionEvent evt) {   
         FileActionHandler fah = new FileActionHandler();
         ArqStatus =  fah.openFile(this, jTextArea4);
         lbStatus.setText("Caminho:" + ArqStatus.getAbsolutePath());
         MessageTxt.setText("           ");
-    }//GEN-LAST:event_btnOpenFileActionPerformed
+    }
 
-    private void btnSaveFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveFileActionPerformed
-        // TODO add your handling code here:
+    private void btnSaveFileActionPerformed(java.awt.event.ActionEvent evt) {
+        
         String caminhoCompleto = lbStatus.getText();
         String separador = ":"; 
         int indiceInicioCaminho = caminhoCompleto.indexOf(separador) + separador.length();
@@ -252,35 +251,34 @@ public class InterfaceMain extends javax.swing.JPanel {
         File caminhoArq = new File(caminho);         
         lbStatus.setText("Caminho:" + FileActionHandler.salvar(jTextArea4,  caminhoArq ));   
         MessageTxt.setText("           ");
-    }//GEN-LAST:event_btnSaveFileActionPerformed
+    }
 
-    private void btnCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCopyActionPerformed
-        // TODO add your handling code here:
+    private void btnCopyActionPerformed(java.awt.event.ActionEvent evt) {
+        
         EditActionHandler.copiar(jTextArea4);
         
-    }//GEN-LAST:event_btnCopyActionPerformed
+    }
 
     private void btnPasteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasteActionPerformed
         try {
-            // TODO add your handling code here:
             EditActionHandler.colar(jTextArea4);
         } catch (UnsupportedFlavorException ex) {
             Logger.getLogger(InterfaceMain.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(InterfaceMain.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btnPasteActionPerformed
+    }
 
     private void btnCutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCutActionPerformed
-        // TODO add your handling code here:
+        
         EditActionHandler.cortar(jTextArea4);
-    }//GEN-LAST:event_btnCutActionPerformed
+    }
 
     private void btnCompileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompileActionPerformed
-        // TODO add your handling code here:
-        String messagem = CompileActionHandler.compilar(jTextArea4.getText());
+        
+        String messagem = CompileActionHandler.compilar(jTextArea4.getText(), ArqStatus.getAbsolutePath());
         MessageTxt.setText(messagem);
-    }//GEN-LAST:event_btnCompileActionPerformed
+    }
 
     private void btnTeamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTeamActionPerformed
         // TODO add your handling code here:
