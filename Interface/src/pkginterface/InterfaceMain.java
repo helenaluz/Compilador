@@ -249,7 +249,8 @@ public class InterfaceMain extends javax.swing.JPanel {
         int indiceInicioCaminho = caminhoCompleto.indexOf(separador) + separador.length();
         String caminho = caminhoCompleto.substring(indiceInicioCaminho);        
         File caminhoArq = new File(caminho);         
-        lbStatus.setText("Caminho:" + FileActionHandler.salvar(jTextArea4,  caminhoArq ));   
+        lbStatus.setText("Caminho:" + FileActionHandler.salvar(jTextArea4,  caminhoArq )); 
+        ArqStatus = caminhoArq;
         MessageTxt.setText("           ");
     }
 
@@ -259,7 +260,7 @@ public class InterfaceMain extends javax.swing.JPanel {
         
     }
 
-    private void btnPasteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasteActionPerformed
+    private void btnPasteActionPerformed(java.awt.event.ActionEvent evt) {                                         
         try {
             EditActionHandler.colar(jTextArea4);
         } catch (UnsupportedFlavorException ex) {
@@ -269,14 +270,14 @@ public class InterfaceMain extends javax.swing.JPanel {
         }
     }
 
-    private void btnCutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCutActionPerformed
+    private void btnCutActionPerformed(java.awt.event.ActionEvent evt) {                                       
         
         EditActionHandler.cortar(jTextArea4);
     }
 
-    private void btnCompileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompileActionPerformed
-        
-        String messagem = CompileActionHandler.compilar(jTextArea4.getText(), ArqStatus.getAbsolutePath());
+    private void btnCompileActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        String caminhoAtual =lbStatus.getText().replace("Caminho:", "");
+        String messagem = CompileActionHandler.compilar(jTextArea4.getText(), caminhoAtual);
         MessageTxt.setText(messagem);
     }
 

@@ -29,10 +29,10 @@ public class GeradorArquivoIL {
             int userSelection = fileChooser.showSaveDialog(null);
 
             if (userSelection == JFileChooser.APPROVE_OPTION) {
-                caminhoArquivo = fileChooser.getSelectedFile().getAbsolutePath();
+                arquivoCaminhoCompleto = fileChooser.getSelectedFile().getAbsolutePath();
 
                 if (!fileChooser.getSelectedFile().getName().endsWith(".il")) {
-                    caminhoArquivo = fileChooser.getSelectedFile().getAbsolutePath() + ".il";
+                    arquivoCaminhoCompleto = fileChooser.getSelectedFile().getAbsolutePath() + ".il";
             }
             } else {
                 System.out.println("Nenhum arquivo selecionado. Operação cancelada.");
@@ -43,7 +43,7 @@ public class GeradorArquivoIL {
         else{
             arquivoCaminhoCompleto = caminhoArquivo.replace(".txt", ".il");
         }
-        arquivoCaminhoCompleto = "C:/Users/Samsung/teste.il";
+        
         try (FileWriter writer = new FileWriter(arquivoCaminhoCompleto)) {
             writer.write(CABECALHO);
             writer.write(corpo);
