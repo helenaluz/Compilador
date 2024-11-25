@@ -5,16 +5,9 @@ import Compilador.Semantico.SemanticContext;
 import pkggals.SemanticError;
 import pkggals.Token;
 
-public class Action101 implements SemanticAction{
-
-    @Override
+public class ActionNula implements SemanticAction{
+        @Override
     public void execute(Token token, SemanticContext context) throws SemanticError {
-        String rodape = 
-        "ret\n" +
-        "}\n" +
-        "}\n";
-
-        context.appendCodigoObjeto(rodape);
+        return;
     }
-    
 }

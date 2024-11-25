@@ -2,6 +2,8 @@ package Compilador;
 
 import java.io.StringReader;
 import java.util.Arrays;
+
+import Compilador.Semantico.SemanticContext;
 import pkggals.*;
 
 public class AnalisadorLexico {
@@ -12,13 +14,14 @@ public class AnalisadorLexico {
         Semantico semantico = new Semantico();
         StringBuilder sb = new StringBuilder();
         
+
         try {
             lexico.setInput(new StringReader(input));
             processarLexico(lexico, input);
             lexico.setInput(new StringReader(input));
             sintatico.parse(lexico, semantico);
             sb.append("Programa compilado com sucesso!");
-            GeradorArquivoIL.gerarArquivo("BLlA", caminhoArquivo);
+            GeradorArquivoIL.gerarArquivo(semantico.analizador.context.getCodigoObjeto().toString(), caminhoArquivo);
 
         } catch (LexicalError e) {
             return tratarErroLexico(e, input);

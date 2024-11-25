@@ -8,13 +8,14 @@ import pkggals.Token;
 
 public class SemanticAnalyzer {
     private final Map<Integer, SemanticAction> actions = new HashMap<>();
-    private final SemanticContext context = new SemanticContext();
+    public final SemanticContext context = new SemanticContext();
 
     public SemanticAnalyzer() {
-        actions.put(100, new Action100()); //TODO: FIX
-        actions.put(101, new Action101());//TODO: FIX
-        actions.put(102, new Action101());//TODO: FIX
-        actions.put(104, new Action101());//TODO: FIX
+        actions.put(100, new Action100()); 
+        actions.put(101, new Action101());
+        actions.put(102, new ActionNula());//TODO: FIX
+        actions.put(103,  new Action103());
+        actions.put(104, new ActionNula());//TODO: FIX
 
         actions.put(105, new Action105());
     }
