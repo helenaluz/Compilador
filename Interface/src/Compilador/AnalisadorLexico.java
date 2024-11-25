@@ -11,7 +11,6 @@ public class AnalisadorLexico {
         Sintatico sintatico = new Sintatico();
         Semantico semantico = new Semantico();
         StringBuilder sb = new StringBuilder();
-        GeradorArquivoIL geradorArquivo = new GeradorArquivoIL();
         
         try {
             lexico.setInput(new StringReader(input));
@@ -19,7 +18,7 @@ public class AnalisadorLexico {
             lexico.setInput(new StringReader(input));
             sintatico.parse(lexico, semantico);
             sb.append("Programa compilado com sucesso!");
-            geradorArquivo.gerarArquivo("BLA", caminhoArquivo);
+            GeradorArquivoIL.gerarArquivo("BLlA", caminhoArquivo);
 
         } catch (LexicalError e) {
             return tratarErroLexico(e, input);
@@ -28,7 +27,7 @@ public class AnalisadorLexico {
             return tratarErroSintatico(e, input);
 
         } catch (SemanticError e) {
-            // Tratamento de erros semânticos, se necessário
+            System.out.println(e.getMessage());
         }
 
         return sb.toString();
