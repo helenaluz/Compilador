@@ -13,16 +13,20 @@ public class SemanticContext {
     private Stack<String> pilhaRotulos = new Stack<>();
     private List<String> listaIdentificadores = new ArrayList<>();
     private Map<String, String> tabelaSimbolos = new HashMap<>();
+    private int contadorRotulo = 0;
 
     public String getOperadorRelacional() {
         return operadorRelacional;
     }
+
     public void setOperadorRelacional(String operadorRelacional) {
         this.operadorRelacional = operadorRelacional;
     }
+
     public StringBuilder getCodigoObjeto() {
         return codigoObjeto;
     }
+
     public void setCodigoObjeto(StringBuilder codigoObjeto) {
         this.codigoObjeto = codigoObjeto;
     }
@@ -34,18 +38,30 @@ public class SemanticContext {
     public Stack<String> getPilhaTipos() {
         return pilhaTipos;
     }
+
     public void setPilhaTipos(Stack<String> pilhaTipos) {
         this.pilhaTipos = pilhaTipos;
     }
     public Stack<String> getPilhaRotulos() {
         return pilhaRotulos;
     }
+    
     public void setPilhaRotulos(Stack<String> pilhaRotulos) {
         this.pilhaRotulos = pilhaRotulos;
     }
+
+    public void addPilhaRotulos(String rotulo){
+        this.pilhaRotulos.push(rotulo);
+    }
+
+    public String gerarNovoRotulo() {
+        return "R" + (++contadorRotulo);
+    }
+
     public List<String> getListaIdentificadores() {
         return listaIdentificadores;
     }
+
     public void setListaIdentificadores(List<String> listaIdentificadores) {
         this.listaIdentificadores = listaIdentificadores;
     }
@@ -57,6 +73,7 @@ public class SemanticContext {
     public Map<String, String> getTabelaSimbolos() {
         return tabelaSimbolos;
     }
+
     public void setTabelaSimbolos(Map<String, String> tabelaSimbolos) {
         this.tabelaSimbolos = tabelaSimbolos;
     }

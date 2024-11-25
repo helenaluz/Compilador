@@ -1,35 +1,32 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Compilador.Semantico.Actions;
 
-import pkggals.*;
 import Compilador.Semantico.*;
+import pkggals.*;
 
-/**
- *
- * @author lbnitsche
- */
 public class Action103 implements SemanticAction {
     @Override
     public void execute(Token token, SemanticContext context) throws SemanticError {
         String tipoExpressao = context.getPilhaTipos().pop();
 
-        if (tipoExpressao.equals("int64")) {
+        if ("int64".equals(tipoExpressao)) {
             context.getCodigoObjeto().append("conv.i8\n");
+        }
+
+        int numIdentificadores = context.getListaIdentificadores().size();
+        if (numIdentificadores > 1) {
+            for (int i = 1; i < numIdentificadores; i++) {
+                context.getCodigoObjeto().append("dup\n");
+            }
         }
 
         for (String identificador : context.getListaIdentificadores()) {
             if (!context.getTabelaSimbolos().containsKey(identificador)) {
-                throw new SemanticError(identificador + " não declarado.");
+                throw new SemanticError(identificador + " não declarado.", token.getPosition());
             }
 
             context.getCodigoObjeto().append("stloc ").append(identificador).append("\n");
         }
 
-        // Limpa a lista de identificadores
         context.getListaIdentificadores().clear();
     }
 }
-
