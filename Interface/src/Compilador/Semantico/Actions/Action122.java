@@ -99,4 +99,5 @@ public class Action122 implements SemanticAction{
                 throw new SemanticError("Erro: Operador não suportado para geração de código IL: " + operador);
         }
     
+    }
 }
