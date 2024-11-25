@@ -23,7 +23,7 @@ public class Action102 implements SemanticAction {
 
         context.getTabelaSimbolos().put(lexeme, tipo);
 
-        String codigo = ".locals init (" + tipo + " " + lexeme + ")";
+        String codigo = ".locals init (" + tipo + " " + lexeme + ")\n";
         context.appendCodigoObjeto(codigo);
 
         context.getListaIdentificadores().clear();
