@@ -13,11 +13,11 @@ public class SemanticAnalyzer {
     public SemanticAnalyzer() {
         actions.put(100, new Action100()); 
         actions.put(101, new Action101());
-        actions.put(102, new Action102());//TODO: FIX
+        actions.put(102, new Action102());
         actions.put(103,  new Action103());
-        actions.put(104, new Action104());//TODO: FIX
-
+        actions.put(104, new Action104());
         actions.put(105, new Action105());
+        actions.put(112, new Action112());
     }
 
     public void executeAction(int action, Token token) throws SemanticError {
