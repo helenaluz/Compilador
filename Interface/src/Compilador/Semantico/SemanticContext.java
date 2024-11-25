@@ -49,6 +49,11 @@ public class SemanticContext {
     public void setListaIdentificadores(List<String> listaIdentificadores) {
         this.listaIdentificadores = listaIdentificadores;
     }
+
+    public void addListaIdentificadores(String indentificador){
+        this.listaIdentificadores.add(indentificador);
+    }
+
     public Map<String, String> getTabelaSimbolos() {
         return tabelaSimbolos;
     }

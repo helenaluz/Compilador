@@ -15,7 +15,7 @@ public class SemanticAnalyzer {
         actions.put(101, new Action101());
         actions.put(102, new ActionNula());//TODO: FIX
         actions.put(103,  new Action103());
-        actions.put(104, new ActionNula());//TODO: FIX
+        actions.put(104, new Action104());//TODO: FIX
 
         actions.put(105, new Action105());
     }
