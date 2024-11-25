@@ -11,6 +11,11 @@ public class SemanticAnalyzer {
     private final SemanticContext context = new SemanticContext();
 
     public SemanticAnalyzer() {
+        actions.put(100, new Action100()); //TODO: FIX
+        actions.put(101, new Action101());//TODO: FIX
+        actions.put(102, new Action101());//TODO: FIX
+        actions.put(104, new Action101());//TODO: FIX
+
         actions.put(105, new Action105());
     }
 
