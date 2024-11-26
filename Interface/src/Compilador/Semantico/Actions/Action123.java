@@ -28,7 +28,7 @@ public class Action123 implements SemanticAction {
         context.getPilhaTipos().push(tipoResultado);
 
 
-        context.appendCodigoObjeto("add"); 
+        context.appendCodigoObjeto("add \n"); 
 
         System.out.println("Ação #123 executada: tipos desempilhados '" + tipoOperando1 + "' e '" 
                 + tipoOperando2 + "', tipo resultante '" + tipoResultado + "', código gerado 'add'");

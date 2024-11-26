@@ -20,7 +20,7 @@ public class Action108 implements SemanticAction {
         String tipoExpressao = context.getPilhaTipos().pop();
 
         if (tipoExpressao.equals("int64")) {
-            context.appendCodigoObjeto("conv.r8");
+            context.appendCodigoObjeto("conv.r8 \n");
         }
 
         String codigoEscrita = "call void [mscorlib]System.Console::Write(" + tipoExpressao + ")";
