@@ -14,7 +14,7 @@ public class Action119 implements SemanticAction {
 
         context.getPilhaTipos().push("bool");
 
-        String codigo = "ldc.i4.1"; 
+        String codigo = "\nldc.i4.1\n"; 
         context.appendCodigoObjeto(codigo);
 
         System.out.println("Ação #119 executada: empilhado 'bool' e gerado código '" + codigo + "'");

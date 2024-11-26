@@ -26,7 +26,7 @@ public class Action109 implements SemanticAction {
 
         
         String novoRotulo2 = "label" + (labelCounter++);
-        context.getCodigoObjeto().append("brfalse ").append(novoRotulo2).append("\n");
+        context.getCodigoObjeto().append("\nbrfalse ").append(novoRotulo2).append("\n");
         context.getPilhaRotulos().push(novoRotulo2); 
     }
 }

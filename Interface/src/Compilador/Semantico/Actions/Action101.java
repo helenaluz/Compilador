@@ -10,7 +10,7 @@ public class Action101 implements SemanticAction{
     @Override
     public void execute(Token token, SemanticContext context) throws SemanticError {
         String rodape = 
-        "ret\n" +
+        "\nret\n" +
         "}\n" +
         "}\n";
 

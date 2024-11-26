@@ -23,7 +23,7 @@ public class Action108 implements SemanticAction {
             context.appendCodigoObjeto("conv.r8 \n");
         }
 
-        String codigoEscrita = "call void [mscorlib]System.Console::Write(" + tipoExpressao + ")";
+        String codigoEscrita = "\ncall void [mscorlib]System.Console::Write(" + tipoExpressao + ")";
         context.appendCodigoObjeto(codigoEscrita);
 
         System.out.println("Ação #108 executada: tipo desempilhado '" + tipoExpressao 

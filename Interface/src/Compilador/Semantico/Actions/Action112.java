@@ -13,7 +13,7 @@ public class Action112 implements SemanticAction {
          String novoRotulo = context.gerarNovoRotulo();
 
          context.addPilhaRotulos(novoRotulo);
-         String codigo = "brfalse " + novoRotulo + "\n";
+         String codigo = "\nbrfalse " + novoRotulo + "\n";
          context.appendCodigoObjeto(codigo);
     }
     

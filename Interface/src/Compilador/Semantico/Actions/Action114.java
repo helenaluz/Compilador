@@ -18,7 +18,7 @@ public class Action114 implements SemanticAction {
         }
 
         String rotuloDesempilhado = context.getPilhaRotulos().pop();
-        String codigoDesvio = "brtrue " + rotuloDesempilhado;
+        String codigoDesvio = "\nbrtrue " + rotuloDesempilhado;
         context.appendCodigoObjeto(codigoDesvio);
 
         System.out.println("Ação #114 executada: rótulo desempilhado '" + rotuloDesempilhado 
