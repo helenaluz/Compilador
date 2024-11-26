@@ -13,24 +13,24 @@ public class Action102 implements SemanticAction {
             throw new SemanticError("Contexto semântico inválido para a ação #102.");
         }
 
-        String lexeme = token.getLexeme();
+        for (String lexeme : context.getListaIdentificadores()) {
 
-        if (context.getTabelaSimbolos().containsKey(lexeme)) {
-            throw new SemanticError(lexeme + " já declarado.", token.getPosition());
+            if (context.getTabelaSimbolos().containsKey(lexeme)) {
+                throw new SemanticError(lexeme + " já declarado.", token.getPosition());
+            }
+
+            String tipo = determinarTipo(lexeme);
+
+            context.getTabelaSimbolos().put(lexeme, tipo);
+
+            String codigo = ".locals init (" + tipo + " " + lexeme + ")\n";
+            context.appendCodigoObjeto(codigo);
+
+            System.out.println("Ação #102 executada: identificador '" + lexeme + "' declarado, tipo '" 
+                    + tipo + "' e código gerado '" + codigo + "'");
         }
-
-        String tipo = determinarTipo(lexeme);
-
-        context.getTabelaSimbolos().put(lexeme, tipo);
-
-        String codigo = ".locals init (" + tipo + " " + lexeme + ")\n";
-        context.appendCodigoObjeto(codigo);
-
+        
         context.getListaIdentificadores().clear();
-
-    
-        System.out.println("Ação #102 executada: identificador '" + lexeme + "' declarado, tipo '" 
-                + tipo + "' e código gerado '" + codigo + "'");
     }
 
 
