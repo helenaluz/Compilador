@@ -15,13 +15,19 @@ public class Action128 implements SemanticAction {
 
     @Override
     public void execute(Token token, SemanticContext context) throws SemanticError {
-        // Obtém o lexema do token, que representa o valor da constante
+
+        if (context == null || context.getPilhaTipos() == null || context.getCodigoObjeto() == null) {
+            throw new SemanticError("Contexto semântico inválido para a ação #128.");
+        }
+
+        if (token == null || token.getLexeme() == null) {
+            throw new SemanticError("Token inválido para a ação #128.");
+        }
+        
         String lexeme = token.getLexeme();
 
-        // Empilha o tipo correspondente (float64) na pilha de tipos
-        context.getPilhaTipos().push("float64");
+        context.getPilhaTipos().push("int64");
 
-        // Gera o código objeto para carregar a constante int como float64
         context.getCodigoObjeto().append("ldc.i8 ").append(lexeme).append("\n");
         context.getCodigoObjeto().append("conv.r8\n");
     }
