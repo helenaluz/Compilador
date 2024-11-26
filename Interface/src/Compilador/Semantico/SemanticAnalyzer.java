@@ -33,7 +33,7 @@ public class SemanticAnalyzer {
         //actions.put(119, new Action119());
         actions.put(120, new Action120());
         //actions.put(121, new Action121());
-        //actions.put(122, new Action122());
+        actions.put(122, new Action122());
         actions.put(123, new Action123());
         actions.put(124, new Action124());
         actions.put(125, new Action125());
