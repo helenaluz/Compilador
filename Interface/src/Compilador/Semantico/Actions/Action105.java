@@ -30,22 +30,22 @@ public class Action105 implements SemanticAction {
         String codigoLeitura;
         switch (tipo) {
             case "int64":
-                codigoLeitura = "call int64 [mscorlib]System.Console::ReadInt64()";
+                codigoLeitura = "\ncall int64 [mscorlib]System.Console::ReadInt64()";
                 break;
             case "float64":
-                codigoLeitura = "call float64 [mscorlib]System.Console::ReadFloat64()";
+                codigoLeitura = "\ncall float64 [mscorlib]System.Console::ReadFloat64()";
                 break;
             case "string":
-                codigoLeitura = "call string [mscorlib]System.Console::ReadLine()";
+                codigoLeitura = "\ncall string [mscorlib]System.Console::ReadLine()";
                 break;
             case "bool":
-                codigoLeitura = "call bool [mscorlib]System.Console::ReadBool()";
+                codigoLeitura = "\ncall bool [mscorlib]System.Console::ReadBool()";
                 break;
             default:
                 throw new SemanticError("Tipo de leitura não suportado: " + tipo, token.getPosition());
         }
 
-        String codigoArmazenamento = "stloc " + lexeme;
+        String codigoArmazenamento = "stloc " + lexeme + "\n";
 
         context.appendCodigoObjeto(codigoLeitura);
         context.appendCodigoObjeto(codigoArmazenamento);
