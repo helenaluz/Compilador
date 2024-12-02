@@ -104,40 +104,40 @@ public class AnalisadorLexico {
 public static String obterLexemaNaPosicao(String input, int posicao) {
     int start = posicao;
 
+   
     while (start < input.length() && Character.isWhitespace(input.charAt(start))) {
         start++;
     }
 
+  
     if (start < input.length() && input.charAt(start) == '\"') {
         int end = start + 1;
         while (end < input.length() && input.charAt(end) != '\"') {
             end++;
         }
         if (end < input.length()) {
-            end++; 
+            end++;
         }
         return input.substring(start, end);
     } else {
         int end = start;
-        
-        if (end + 1 < input.length() && isOperatorOrSymbol(input.charAt(end), input.charAt(end + 1))) {
-            end += 2; 
-        } else {
-          
-            while (end < input.length() && !Character.isWhitespace(input.charAt(end)) && !isOperatorOrSymbol(input.charAt(end), input.charAt(end))) {
-                end++;
-            }
+
+
+        while (end < input.length() && !Character.isWhitespace(input.charAt(end)) && !isOperatorOrSymbol(input.charAt(end))) {
+            end++;
         }
 
+      
         return input.substring(start, end);
-        }
     }
+}
 
-    private static boolean isOperatorOrSymbol(char current, char next) {
-        String operator = "" + current + next;
-        
-      return operator.matches("==|!=|<=|>=|&&|\\|\\|");
-    }
+
+private static boolean isOperatorOrSymbol(char current) {
+    
+    return "!@#$%^&*()_+[]{}|;:',.<>?/\\\"".indexOf(current) >= 0;
+}
+
 
     public static String identificaConstanteString(String input) {
         return input.matches("^\".*\"$") ? "constante_string" : null;
