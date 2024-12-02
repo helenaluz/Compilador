@@ -27,7 +27,7 @@ public class Action127 implements SemanticAction {
         context.appendCodigoObjeto(codigo);
 
         if (tipo.equals("int64")) {
-            context.appendCodigoObjeto(" \n"); 
+            context.appendCodigoObjeto("conv.r8\n"); 
         }
 
         System.out.println("Ação #127 executada: identificador '" + lexeme + "' encontrado, tipo '" 
