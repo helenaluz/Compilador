@@ -21,7 +21,7 @@ public class Action130 implements SemanticAction {
         context.getPilhaTipos().push("string");
 
  
-        String codigo = "ldstr \"" + lexeme.replace("\"", "\\\"") + "\"";
+        String codigo = "ldstr " + lexeme;
         context.appendCodigoObjeto(codigo);
         System.out.println("Ação #130 executada: empilhado 'string' e gerado código '" + codigo + "'");
     }
