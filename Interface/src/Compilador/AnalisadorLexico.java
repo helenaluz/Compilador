@@ -30,13 +30,30 @@ public class AnalisadorLexico {
             return tratarErroSintatico(e, input);
 
         } catch (SemanticError e) {
-            System.out.println(e.getMessage());
+            return tratarErroSemantico(e,input);
         }
 
         return sb.toString();
     }
 
     private String tratarErroLexico(LexicalError e, String input) {
+        int posicao = e.getPosition();
+        int linha = obterLinha(input, posicao);
+        String mensagemOriginal = e.getMessage();
+        String lexema = obterLexemaNaPosicao(input, posicao);
+
+        String[] palavrasEscolhidas = {"palavra", "símbolo", "identificador"};
+        String mensagem = "Erro na linha " + linha + " - ";
+        if (Arrays.asList(palavrasEscolhidas).contains(mensagemOriginal.split(" ")[0])) {
+            mensagem += lexema + " " + mensagemOriginal;
+        } else {
+            mensagem += mensagemOriginal;
+        }
+        
+        return mensagem;
+    }
+
+    private String tratarErroSemantico(SemanticError e, String input) {
         int posicao = e.getPosition();
         int linha = obterLinha(input, posicao);
         String mensagemOriginal = e.getMessage();
