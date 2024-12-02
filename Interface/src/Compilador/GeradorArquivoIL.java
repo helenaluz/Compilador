@@ -10,8 +10,8 @@ public class GeradorArquivoIL {
         ".assembly extern mscorlib {}\n" +
         ".assembly _codigo_objeto{}\n" +
         ".module _codigo_objeto.exe\n" +
-        ".class public UNICA{\n" +
-        ".method static public void _principal() {\n" +
+        "\n.class public UNICA{\n" +
+        "\n.method static public void _principal() {\n" +
         ".entrypoint\n";
 
     private static final String RODAPE = 
