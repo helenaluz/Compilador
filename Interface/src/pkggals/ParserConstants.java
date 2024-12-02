@@ -125,7 +125,7 @@ public interface ParserConstants
     String[] PARSER_ERROR =
     {
         "", //""
-        "esperado FOP", //"Era esperado fim de programa"
+        "esperado EOF", //"Era esperado fim de programa"
         "esperado contante float", //"Era esperado constante_float"
         "esperado constante int", //"Era esperado constante_int"
         "esperado palavra reservada", //"Era esperado reservada"
