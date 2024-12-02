@@ -21,11 +21,11 @@ public class Action109 implements SemanticAction {
     @Override
     public void execute(Token token, SemanticContext context) throws SemanticError {
         
-        String novoRotulo1 = "label" + (labelCounter++);
+        String novoRotulo1 = "\nlabel" + (labelCounter++);
         context.getPilhaRotulos().push(novoRotulo1); 
 
         
-        String novoRotulo2 = "label" + (labelCounter++);
+        String novoRotulo2 = "\nlabel" + (labelCounter++);
         context.getCodigoObjeto().append("\nbrfalse ").append(novoRotulo2).append("\n");
         context.getPilhaRotulos().push(novoRotulo2); 
     }
