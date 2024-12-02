@@ -23,7 +23,7 @@ public class Action110 implements SemanticAction {
         String rotuloDesempilhado2 = context.getPilhaRotulos().pop();
         String rotuloDesempilhado1 = context.getPilhaRotulos().pop();
 
-        context.getCodigoObjeto().append("br ").append(rotuloDesempilhado1).append("\n");
+        context.getCodigoObjeto().append("\nbr ").append(rotuloDesempilhado1).append("\n");
 
         context.getPilhaRotulos().push(rotuloDesempilhado1);
 
