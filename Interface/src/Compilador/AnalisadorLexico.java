@@ -81,7 +81,7 @@ public class AnalisadorLexico {
                         ? lexemaTemp 
                         : (constanteString != null ? constanteString : "EOF");
 
-        return "Erro na linha " + linha + " - " + lexema + " " + mensagemOriginal;
+        return "Erro na linha " + linha + " - encontrado " + lexema + " " + mensagemOriginal;
     }
 
     private static String obterTipoToken(int id) {
