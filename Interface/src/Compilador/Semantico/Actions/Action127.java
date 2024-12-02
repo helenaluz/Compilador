@@ -23,7 +23,7 @@ public class Action127 implements SemanticAction {
 
         context.getPilhaTipos().push(tipo);
 
-        String codigo = "ldloc " + lexeme + "\n";
+        String codigo = "\nldloc " + lexeme + "\n";
         context.appendCodigoObjeto(codigo);
 
         if (tipo.equals("int64")) {
