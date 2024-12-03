@@ -120,7 +120,7 @@ public static String obterLexemaNaPosicao(String input, int posicao) {
         }
         return input.substring(start, end);
     } else {
-        int end = start;
+        int end = start+1;
 
 
         while (end < input.length() && !Character.isWhitespace(input.charAt(end)) && !isOperatorOrSymbol(input.charAt(end))) {
