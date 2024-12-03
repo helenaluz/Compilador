@@ -45,9 +45,7 @@ public class GeradorArquivoIL {
         }
         
         try (FileWriter writer = new FileWriter(arquivoCaminhoCompleto)) {
-           // writer.write(CABECALHO);
             writer.write(corpo);
-            //writer.write(RODAPE);
             System.out.println("Arquivo gerado com sucesso em " + arquivoCaminhoCompleto);
         } catch (IOException e) {
             System.err.println("Erro ao gerar o arquivo: " + e.getMessage());

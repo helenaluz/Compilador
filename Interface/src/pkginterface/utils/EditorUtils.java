@@ -29,6 +29,5 @@ public class EditorUtils {
         });
     }
     public static void atualizaStatus(String filePath) {
-        //recebe caminho do arquivo atual
     }
 }

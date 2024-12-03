@@ -25,7 +25,7 @@ public class Action106 implements SemanticAction {
         context.getPilhaTipos().push("string");
 
       
-        String codigo = "ldstr " + lexeme + "\n";  // Aqui, o MSIL já vai entender a string corretamente.
+        String codigo = "ldstr " + lexeme + "\n";
         context.appendCodigoObjeto(codigo);
 
       

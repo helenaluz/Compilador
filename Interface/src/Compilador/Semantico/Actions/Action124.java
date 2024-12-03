@@ -14,17 +14,14 @@ public class Action124 implements SemanticAction {
 
     @Override
     public void execute(Token token, SemanticContext context) throws SemanticError {
-        // Verifica se há pelo menos dois tipos na pilha de tipos
         if (context.getPilhaTipos().size() < 2) {
             throw new SemanticError("Erro semântico: tipos insuficientes na pilha para a operação aritmética binária '-'.",
                     token.getPosition());
         }
 
-        // Desempilha os dois tipos do topo da pilha
         String tipoOperando2 = context.getPilhaTipos().pop();
         String tipoOperando1 = context.getPilhaTipos().pop();
 
-        // Determina o tipo resultante com base na tabela de tipos
         String tipoResultante;
         if (tipoOperando1.equals("int64") && tipoOperando2.equals("int64")) {
             tipoResultante = "int64";
@@ -36,10 +33,8 @@ public class Action124 implements SemanticAction {
                     token.getPosition());
         }
 
-        // Empilha o tipo resultante da operação
         context.getPilhaTipos().push(tipoResultante);
 
-        // Gera o código objeto para a subtração
         context.getCodigoObjeto().append("sub\n");
     }
 }

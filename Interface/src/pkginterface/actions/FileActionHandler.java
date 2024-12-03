@@ -87,30 +87,10 @@ public class FileActionHandler {
         return caminho;
     }
         
-        //TODO: logica para salvar o arquivo
-        /*
-        precisa ter:
-         - verificacao se arquivo ja existe ou nao
-         se existir:
-            - atualiza o .txt com o conteudo do editor
-            - chama funcao para limpar a area de mensagens
-         senao:
-            - selecao de pasta + nomeacao do arquivo
-            - salvar o conteudo do editor em .txt
-            - chamar funcao para limpar area de mensagem
-            - chamar funcao para atualizar barra de status
-         */
-    
+        
 
     public void newFile(){
-        //TODO: logica para novo arquivo
-        /*
-        precisa ter:
-         - chamar funcao de limpar o editor
-         - chamar funcao para limpar area de mensagem
-         - chamar funcao para limpar barra de status
-
-         */
+       
     }
 
 

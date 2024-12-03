@@ -8,7 +8,6 @@ import pkggals.Token;
 public class Action126 implements SemanticAction{
     @Override
     public void execute(Token token, SemanticContext context) throws SemanticError {
-        // Verifica se há pelo menos dois tipos na pilha de tipos
         if (context.getPilhaTipos().size() < 2) {
             throw new SemanticError("Erro semântico: tipos insuficientes na pilha para a operação aritmética binária '*'.",
                     token.getPosition());
